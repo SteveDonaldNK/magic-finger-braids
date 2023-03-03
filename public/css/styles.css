@@ -1,0 +1,108 @@
+/* reset */
+
+.container-fluid {
+    padding: 0 !important;
+}
+
+
+:root {
+    --primary-color: #FAE0D8;
+    --secondary-color: #000;
+    --brown-color: #C5BAA1;
+    --underline: #FFADAF;
+    --clear: #FFF;
+    --gray: #444444;
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+}
+
+/************* navigation bar starts *************/
+
+nav {
+    width: 100%;
+    background-color: transparent;
+    z-index: 10;
+}
+
+.navbar {
+    background-color: transparent !important;
+    padding: 0.6rem 3.5rem;
+}
+
+.navbar .nav-link {
+    color: var(--secondary-color);
+    font-weight: 700;
+    font-size: 1rem;
+    padding-top: 15px;
+}
+
+.navbar-collapse .navbar-nav, .navbar-collapse .navbar-brand {
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.nav-link.active::after {
+   content: "";
+   width: 120px;
+   height: 20px;
+   background-color: #000; 
+}
+
+.navbar .nav-icons img {
+    height: 22px;
+    cursor: pointer;
+}
+
+/************* navigation bar ends *************/
+
+
+
+/************* main-section starts *************/
+
+#main-section {
+    height: 100vh;
+    width: 100%;
+    background-color: var(--primary-color);
+}
+
+#main-section .row {
+    top: 30%;
+}
+
+#main-section .row .left-col {
+    padding-left: 12%;
+}
+
+#main-section .row h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+}
+
+#main-section .row p {
+    width: 75%;
+    color: var(--gray);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.6rem;
+}
+
+#main-section .row .left-col .btn {
+    background-color: var(--secondary-color);
+    color: var(--clear);
+    border-radius: 0;
+    padding: 1.2rem 5rem;
+    margin-top: 2rem;
+    font-size: 0.95rem;
+    letter-spacing: 2px;    
+}
+
+#main-section {
+    background-image: url('../assets/main.png');
+    background-size: 35% auto;
+    background-position: top calc(20% + 5em) right 25%;
+    background-repeat: no-repeat;
+}
+
+/************* main-section ends *************/
