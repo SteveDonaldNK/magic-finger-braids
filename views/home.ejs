@@ -15,9 +15,27 @@
 <body>
     <nav class="navbar navbar-expand-lg position-fixed">
         <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
             <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+                <div class="offcanvas-body">
+                    <ul class="offcanvas-nav gap-4">
+                        <li class="offcanvas-item">
+                        <a class="offcanvas-link active" href="#">Home</a>
+                        </li>
+                        <li class="offcanvas-item">
+                        <a class="offcanvas-link" href="#">Shop</a>
+                        </li>
+                        <li class="offcanvas-item">
+                        <a class="offcanvas-link" href="#">About</a>
+                        </li>
+                        <li class="offcanvas-item">
+                        <a class="offcanvas-link" href="#">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav gap-4">
                     <li class="nav-item">
@@ -33,7 +51,9 @@
                     <a class="nav-link" href="#">Contact</a>
                     </li>
                 </ul>
-                <a class="navbar-brand text-center" href="/">Logo</a>
+                <a class="navbar-brand text-center" href="/">
+                    <img class="navbar-logo" src="assets/magic-logo.png" alt="">
+                </a>
                 <ul class="navbar-nav nav-icons  gap-5 justify-content-end">
                     <li class="nav-item">
                         <img src="assets/lens.svg" alt="">
@@ -51,16 +71,157 @@
 
     <section id="main-section" class="position-relative">
         <div class="row position-absolute w-100">
-            <div class="col col-lg-7 col-sm-12 left-col">
+            <div class="col col-lg-7 col-md-8 col-sm-12">
                 <h1>Glamorous, <br> Braiding Hair</h1>
                 <p>Transform your look with our glamorous braiding hair collection - 
                     stunning styles that'll leave you turning heads!</p>
                 <a href="/shop"><button class="btn">Shop now</button></a>
             </div>
-            <div class="col col-lg-5 col-sm-12 right-col">
+        </div>
+        <div class="container-fluid position-absolute bottom-0 main-social d-flex ">
+            <span>
+                <h2>
+                    Follow us on our social pages
+                </h2>
+            </span>
+            <span>
+                <a href="">
+                    <img src="assets/facebook.png" alt="facebook">
+                    <p>Facebook</p>
+                </a>
+            </span>
+            <span>
+                <a href="">
+                    <img src="assets/instagram.png" alt="instagram">
+                    <p>Instagram</p>
+                </a>
+            </span>
+            <span>
+                <a href="">
+                    <img src="assets/tiktok.png" alt="tiktok">
+                    <p>Tiktok</p>
+                </a>
+            </span>
+        </div>
+        <img class="position-absolute main-img" src="assets/main.png" alt="">
+    </section>
+
+    <section id="featured-section" class="container-fluid">
+        <div class="heading w-100 text-center">
+            <h6>DISCOVER OUR BRAID STYLES</h6>
+            <h2>Featured Hair</h2>
+        </div>
+        <div class="container-fluid">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="hstack justify-content-between">
+                            <div class="card">
+                                <img src="assets/image1.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="card">
+                                <img src="assets/image2.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="card">
+                                <img src="assets/image3.jpg" class="card-img-top" alt="...">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="hstack justify-content-between">
+                            <div class="card">
+                                <img src="assets/image4.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="card">
+                                <img src="assets/image5.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="card">
+                                <img src="assets/image6.jpg" class="card-img-top" alt="...">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="hstack justify-content-between">
+                            <div class="card">
+                                <img src="assets/image7.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="card">
+                                <img src="assets/image8.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="card">
+                                <img src="assets/image9.jpg" class="card-img-top" alt="...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
     </section>
+
+    <section id="testimonial-section"></section>
+
+    <hr>
+
+    <footer>
+        <div class="row w-100">
+            <div class="row col-lg-9 col-md-8 px-0 left-row">
+                <div class="col col-lg-3 col-md-3">
+                    <a href="/">
+                        <img class="logo" src="assets/magic-logo.png" alt="">
+                    </a>
+                </div>
+                <div class="col col-lg-3 col-md-3">
+                    <ul class="footer-links">
+                        <li><a href="">Shop</a></li>
+                        <li><a href="">About us</a></li>
+                        <li><a href="">Contact us</a></li>
+                    </ul>
+                </div>
+                <div class="col col-lg-3 col-md-3">
+                    <ul class="footer-legal">
+                        <li><a href="">Privacy Policy</a></li>
+                        <li><a href="">Cookie Policy</a></li>
+                        <li><a href="">Terms & conditions</a></li>
+                    </ul>
+                </div>
+                <div class="col col-lg-3 col-md-3">
+                    <ul class="footer-social">
+                        <li><a href="">Facebook</a></li>
+                        <li><a href="">Instagram</a></li>
+                        <li><a href="">Tiktok</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row col-lg-3 col-md-4 px-0 right-row">
+                <div class="col-lg-12 col-md-12">
+                    <p class="form-heading mb-2">Receive the latest news from Magic Finger Braids</p>
+                    <form>
+                        <div class="position-relative">
+                            <input id="email" placeholder="Your email address" type="email">
+                            <button class="btn position-absolute end-0 p-0" type="submit"></button>
+                        </div>
+                    </form>
+                    <p class="copyright mt-3">&copy; Copyright <span class="year"></span> | All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>
