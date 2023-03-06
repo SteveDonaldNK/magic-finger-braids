@@ -83,6 +83,9 @@
                 <h2>
                     Follow us on our social pages
                 </h2>
+                <h2 class="contracted">
+                    Follow us
+                </h2>
             </span>
             <span>
                 <a href="">
@@ -119,47 +122,25 @@
                   <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="hstack justify-content-between">
-                            <div class="card">
-                                <img src="assets/image1.jpg" class="card-img-top" alt="...">
-                            </div>
-                            <div class="card">
-                                <img src="assets/image2.jpg" class="card-img-top" alt="...">
-                            </div>
-                            <div class="card">
-                                <img src="assets/image3.jpg" class="card-img-top" alt="...">
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="carousel-item">
-                        <div class="hstack justify-content-between">
-                            <div class="card">
-                                <img src="assets/image4.jpg" class="card-img-top" alt="...">
-                            </div>
-                            <div class="card">
-                                <img src="assets/image5.jpg" class="card-img-top" alt="...">
-                            </div>
-                            <div class="card">
-                                <img src="assets/image6.jpg" class="card-img-top" alt="...">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="hstack justify-content-between">
-                            <div class="card">
-                                <img src="assets/image7.jpg" class="card-img-top" alt="...">
-                            </div>
-                            <div class="card">
-                                <img src="assets/image8.jpg" class="card-img-top" alt="...">
-                            </div>
-                            <div class="card">
-                                <img src="assets/image9.jpg" class="card-img-top" alt="...">
+                    <% let index = 0 %>
+                    <% for(let i = 0 ; i<4 ; i++) { %>
+                        <% if (i === 0) { %>  
+                            <div class="carousel-item active">
+                            <% } else { %>
+                                <div class="carousel-item ">
+                            <% } %>
+                            <div class="hstack justify-content-between">
+                                <% for(let j = 0 ; j<2 ; j++) { %>
+                                    <div class="card">
+                                        <img src="<%= featuredProducts[index].image%>" class="card-img-top" alt="...">
+                                    </div>
+                                    <% index++ %>
+                                <% } %>
                             </div>
                         </div>
-                    </div>
+                    <% } %>
+                    
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -178,9 +159,9 @@
     <hr>
 
     <footer>
-        <div class="row w-100">
-            <div class="row col-lg-9 col-md-8 px-0 left-row">
-                <div class="col col-lg-3 col-md-3">
+        <div class="row w-100 m-0 justify-content-center">
+            <div class="row col-lg-9 col-md-12 px-0 left-row">
+                <div class="col col-lg-3 col-md-3 col-sm-12 col-12 text-center">
                     <a href="/">
                         <img class="logo" src="assets/magic-logo.png" alt="">
                     </a>
@@ -207,8 +188,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="row col-lg-3 col-md-4 px-0 right-row">
-                <div class="col-lg-12 col-md-12">
+            <div class="row col-lg-3 col-md-12 col-sm-12 px-0 right-row">
+                <div class="col col-lg-12 col-md-12 col-sm-12 ">
                     <p class="form-heading mb-2">Receive the latest news from Magic Finger Braids</p>
                     <form>
                         <div class="position-relative">
