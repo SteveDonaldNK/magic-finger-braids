@@ -1,0 +1,41 @@
+<div class="lg-carousel-container container-fluid">
+    <div id="lg-carousel-indicators" class="carousel slide" data-bs-ride="true">
+        
+        
+        <div id="lg-carousel-indicators" class="carousel-indicators">
+            <button type="button" data-bs-target="#lg-carousel-indicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <% for (i = 1; i < 3 ; i++) { %>
+                <button type="button" data-bs-target="#lg-carousel-indicators" data-bs-slide-to="<%= i %>" aria-label="Slide <%= i+1 %>"></button>
+            <% } %>
+        </div>
+        
+        <div id="lg-carousel" class="carousel-inner ">
+            <% let index = 0 %>
+            <% for(let i = 0 ; i < 3 ; i++) { %>
+                <% if (i === 0) { %>  
+                    <div class="carousel-item active">
+                    <% } else { %>
+                        <div class="carousel-item ">
+                    <% } %>
+                    <div class="hstack justify-content-between">
+                        <% for(let j = 0 ; j < 3 ; j++) { %>
+                            <div class="card">
+                                <img src="<%= featuredProducts[index].image%>" class="card-img-top" alt="...">
+                            </div>
+                            <% index++ %>
+                        <% } %>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#lg-carousel-indicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#lg-carousel-indicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
