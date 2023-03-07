@@ -338,18 +338,18 @@ nav {
     padding: 5rem !important;
 }
 
-#featured-section .heading h6 {
+.heading h6 {
     color: var(--brown-color);
     letter-spacing: 0.1rem;
     font-weight: 700;
     font-size: 1rem;
 }
 
-#featured-section .heading h2 {
+.heading h2 {
     color: var(--secondary-color);
     letter-spacing: 0.1rem;
     font-weight: 700;
-    font-size: 3rem;
+    font-size: 2.6rem;
     margin: 0 0 5%;
 }
 
@@ -391,12 +391,12 @@ nav {
 }
 
 #featured-section .carousel-control-prev {
-    left: 2%;
+    left: 4%;
     transform: translate(-50%, -50%);
 }
 
 #featured-section .carousel-control-next {
-    right: 2%;
+    right: 4%;
     transform: translate(50%, -50%);
 }
 
@@ -414,7 +414,7 @@ nav {
 }   
 
 hr {
-  margin: 0 5rem 5%;
+  margin: 0 5rem 5rem;
   background-color: var(--gray-clear);
   border: 0;
   height: 0.1rem;
@@ -471,7 +471,71 @@ hr {
 
 }
 
+/* Testimonial section */
 
+#testimonial-section {
+  padding: 0 5rem !important;
+  /* text-align: center; */
+}
+
+#testimonial-section .testimonial {
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.02rem;
+  line-height: 1.5rem;
+}
+#testimonial-section .card {
+  border: 0;
+  text-align: center;
+}
+
+#testimonial-section .card .card-body {
+  padding: 0;
+}
+
+#testimonial-section .testimonial .quotes {
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+#testimonial-section .client-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+  color: var(--brown-color);
+}
+
+#testimonial-section .carousel-indicators {
+  display: none;
+}
+
+#testimonial-section :is(.carousel-control-next, .carousel-control-prev) {
+  background-color: red;
+  width: fit-content;
+  height: fit-content;
+  padding: 0.5rem;
+}
+
+@media (max-width: 992px) {
+  #testimonial-section .card {
+    width: 70% !important;
+    margin: 1rem auto;
+  }
+}
+
+@media (max-width: 600px) {
+  #testimonial-section {
+    padding: 0 1rem 5% !important;
+  }
+
+  #testimonial-section .card {
+    width: 90% !important;
+  }
+
+  #testimonial-section :is(.carousel-control-next, .carousel-control-prev) {
+    display: none;
+  }
+}
 
 
 /* Footer */

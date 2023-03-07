@@ -101,19 +101,85 @@
             <h6>DISCOVER OUR BRAID STYLES</h6>
             <h2>Featured Hair</h2>
         </div>
-        <%- include("partials/featuredProductslg") %>
-        <%- include("partials/featuredProductsMd") %>
+        <%- include("partials/featured-section/featuredProductslg") %>
+        <%- include("partials/featured-section/featuredProductsMd") %>
         
     </section>
 
+    
+    <hr>
+    
     <section id="testimonial-section">
-        <div class="row justify-content-center">
-            <div class="col col-lg-4 col-md-12">
+        <div class="heading w-100 text-center">
+            <h6>TESTIMONIALS</h6>
+            <h2>What Our Clients Say About Us</h2>
+        </div>
+        <div class="testimonial-carousel-container container-fluid">
+            <div id="testimonial-carousel-indicators" class="carousel slide pb-5" data-bs-ride="true">
                 
+                
+                <div id="testimonial-carousel-indicators" class="carousel-indicators m-0">
+                    <button type="button" data-bs-target="#testimonial-carousel-indicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#testimonial-carousel-indicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#testimonial-carousel-indicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                
+                <div id="lg-carousel" class="carousel-inner ">
+                    <div class="carousel-item active">
+                        <div class="card" style="width: 55%; margin: auto;">
+                            <div class="card-body">
+                                <p class="testimonial"><span class="quotes">"</span>I was hesitant to try a new hair braiding service, 
+                                    but I'm so glad I did! The team from magic finger braids was friendly, 
+                                    professional, and listened to what I wanted. 
+                                    I left feeling beautiful and confident. 
+                                    I'll definitely be back!<span class="quotes">"</span>
+                                </p>
+                                <h6 class="card-subtitle mb-2 client-name">John Doe</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="card" style="width: 55%; margin: auto;">
+                            <div class="card-body">
+                                <p class="testimonial">
+                                    <span class="quotes">"</span>
+                                    I've been going to magic finger braids for years and I'm always impressed by their attention to detail and the quality of their work. 
+                                    They always make sure I'm comfortable and happy with the end result. 
+                                    Love them!<span class="quotes">"</span>
+                                </p>
+                                <h6 class="card-subtitle mb-2 client-name">Elie Doe</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="card" style="width: 55%; margin: auto;">
+                            <div class="card-body">
+                                <p class="testimonial">
+                                    <span class="quotes">"</span>
+                                    I was really nervous about getting my hair braided for the first time, 
+                                    but the staff at magic finger braids put me at ease right away. 
+                                    They were patient and gave me exactly what I wanted. 
+                                    I couldn't be happier with the results.
+                                    <span class="quotes">"</span>
+                                </p>
+                                <h6 class="card-subtitle mb-2 client-name">Elie Doe</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonial-carousel-indicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonial-carousel-indicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
     </section>
-
+    
     <hr>
 
     <%- include("partials/footer") %>
