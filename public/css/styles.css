@@ -23,8 +23,30 @@ body {
 
 /* Navigation bar */
 
-.offcanvas {
+nav .side-bar {
   display: none;
+}
+
+nav .side-bar .offcanvas-item {
+  margin-top: 1.5rem !important;
+  list-style: none;
+}
+
+nav .side-bar .offcanvas-item a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+nav .side-bar .offcanvas-item a img {
+  height: 22px;
+}
+
+nav .side-bar .offcanvas-item.login-btn {
+  height: 3rem ;
+  bottom: 0;
+  border-top: 2px solid var(--gray-clear-xl);
 }
 
 nav {
@@ -43,6 +65,10 @@ nav {
     font-size: 1rem;
     padding-top: 15px;
     color: var(--secondary-color);
+  }
+
+  .navbar .md-brand, .navbar .md-cart {
+    display: none;
   }
 
   .navbar .navbar-logo {
@@ -66,12 +92,34 @@ nav {
     height: 22px;
     cursor: pointer;
   }
+
+  @media (max-width: 991.5px) {
+    .navbar .md-brand{
+      display: block;
+      margin: auto;
+    }
+
+    .navbar .md-cart img {
+      width: 22px;
+    }
+
+    .navbar .md-brand, .navbar .md-cart{
+      display: block;
+    }
+  }
+
+  @media (max-width: 600px) {
+    nav .side-bar {
+      width: 100% !important;
+    }
+  }
   
   /* Main section */
   #main-section {
     height: 100vh;
     width: 100%;
     background-color: var(--primary-color);
+    z-index: 1;
   }
 
   #main-section .main-social {
@@ -180,7 +228,7 @@ nav {
       width: 1.8rem;
     }
 
-    .offcanvas {
+    nav .side-bar {
       display: block;
     }
 
@@ -505,14 +553,20 @@ hr {
   color: var(--brown-color);
 }
 
-#testimonial-section .carousel-indicators {
-  display: none;
+#testimonial-section .carousel-control-next {
+  background-image: url("../assets/chevron-right.svg");
+}
+
+#testimonial-section .carousel-control-prev {
+  background-image: url("../assets/chevron-left.svg");
 }
 
 #testimonial-section :is(.carousel-control-next, .carousel-control-prev) {
-  background-color: red;
-  width: fit-content;
-  height: fit-content;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 1.8rem;
+  height: 1.8rem;
   padding: 0.5rem;
 }
 

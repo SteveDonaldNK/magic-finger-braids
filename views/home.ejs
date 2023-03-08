@@ -2,27 +2,44 @@
     
     <nav class="navbar navbar-expand-lg position-fixed">
         <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-            <span class="navbar-toggler-icon"></span>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-                <div class="offcanvas-body">
-                    <ul class="offcanvas-nav gap-4">
+
+            <a class="navbar-brand text-center md-brand" href="/">
+                <img class="navbar-logo" src="assets/magic-logo.png" alt="">
+            </a>
+
+            <a href="#" class="nav-item md-cart">
+                <img src="assets/cart.svg" alt="">
+            </a>
+            
+            <div class="offcanvas offcanvas-start side-bar" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-body px-5 h-100 position-relative">
+                    <ul class="offcanvas-nav ps-0">
                         <li class="offcanvas-item">
-                        <a class="offcanvas-link active" href="#">Home</a>
+                        <a class="offcanvas-link first" href="#">HOME</a>
                         </li>
                         <li class="offcanvas-item">
-                        <a class="offcanvas-link" href="#">Shop</a>
+                        <a class="offcanvas-link" href="#">SHOP</a>
                         </li>
                         <li class="offcanvas-item">
-                        <a class="offcanvas-link" href="#">About</a>
+                        <a class="offcanvas-link" href="#">ABOUT</a>
                         </li>
                         <li class="offcanvas-item">
-                        <a class="offcanvas-link" href="#">Contact</a>
+                        <a class="offcanvas-link" href="#">CONTACT</a>
+                        </li>
+                        <li class="position-absolute offcanvas-item w-100 d-flex align-items-center login-btn">
+                            <a class="d-flex w-100 justify-content-between" href="/login">
+                                <span>LOGIN</span>
+                                <img src="assets/person.svg" alt="">
+                            </a>
                         </li>
                     </ul>
                 </div>
             </div>
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav gap-4">
                     <li class="nav-item">
@@ -115,15 +132,7 @@
             <h2>What Our Clients Say About Us</h2>
         </div>
         <div class="testimonial-carousel-container container-fluid">
-            <div id="testimonial-carousel-indicators" class="carousel slide pb-5" data-bs-ride="true">
-                
-                
-                <div id="testimonial-carousel-indicators" class="carousel-indicators m-0">
-                    <button type="button" data-bs-target="#testimonial-carousel-indicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#testimonial-carousel-indicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#testimonial-carousel-indicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-                
+            <div id="testimonial-carousel" class="carousel slide pb-5" data-bs-ride="true">
                 <div id="lg-carousel" class="carousel-inner ">
                     <div class="carousel-item active">
                         <div class="card" style="width: 55%; margin: auto;">
@@ -168,11 +177,11 @@
                     </div>
                 </div>
         
-                <button class="carousel-control-prev" type="button" data-bs-target="#testimonial-carousel-indicators" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonial-carousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#testimonial-carousel-indicators" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonial-carousel" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
                 </button>
