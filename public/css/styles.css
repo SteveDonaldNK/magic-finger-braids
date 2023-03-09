@@ -170,6 +170,10 @@ nav {
     nav .side-bar {
       width: 100% !important;
     }
+
+    .offcanvas-end {
+      width: 100% !important;
+    }
   }
   
   /* Main section */
