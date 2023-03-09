@@ -1,0 +1,125 @@
+:root {
+    --primary-color: #FAE0D8;
+    --secondary-color: #000;
+    --clear: #FFF;
+    --brown-color: #c9a14b;
+    --underline: #FFADAF;
+    --gray-clear: #9EA0A0;
+    --gray: #444444;
+    --gray-clear-xl: #BEBFBF;
+    --facebook: #1773EA;
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+}
+
+.container-fluid {
+    padding: 0 !important;
+}
+
+.product-section {
+    padding: 8rem 5% 0;
+}
+
+.product-section .card {
+    width: 90%;
+}
+
+.product-section .card .card-text+.card-text {
+    font-size: 0.95rem;
+}
+
+.product-section .card .card-img-top {
+    height: 20rem;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 15px;
+}
+
+.product-section .form-select {
+    width: 5.5rem;
+    height: 2rem;
+    padding: 0 2rem 0 0;
+    margin-left: 2px;
+    background-color: transparent;
+    border: 0;
+}
+
+hr {
+    margin: 5%;
+}
+
+.product-section .breadcrumb li a {
+    color: var(--gray-clear);
+    text-decoration: none;
+}
+
+.product-section select:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.product-section select option:active {
+    background-color: var(--secondary-color);
+}
+
+@media (max-width: 1150px) {
+
+    .product-section .card .card-img-top {
+        height: 18rem;
+    }
+    
+}
+
+@media (max-width: 850px) {
+
+    .product-section .card .card-img-top {
+        height: 16rem;
+    }
+    
+}
+
+@media (max-width: 768px) {
+    
+    .product-section .card .card-img-top {
+        height: 18rem;
+    }
+
+}
+
+
+@media (max-width: 575.5px) {
+
+    .product-section .card {
+        width: 95%;
+    }
+
+    .product-section .card .card-img-top {
+        height: 15rem;
+    }
+    
+}
+
+@media (max-width: 350px) {
+
+    .product-section .card {
+        width: 100%;
+    }
+
+    .product-section .card .card-img-top {
+        height: 15rem;
+    }
+
+    .product-section .row {
+        flex-direction: column;
+    }
+    
+    .product-section .row .col {
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+

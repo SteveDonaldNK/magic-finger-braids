@@ -29,4 +29,5 @@ app.use(passport.session());
 // mongoose.connect("mongodb://localhost:27017/shopDB");
 
 app.get('/', (req, res) => res.render("home", {featuredProducts: Products}));
+app.get('/shop', (req, res) => res.render("shop", {products: Products}));
 app.listen(port, () => console.log(`app listening on port ${port}!`))

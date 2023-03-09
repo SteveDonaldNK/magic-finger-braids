@@ -1,116 +1,14 @@
     <%- include("partials/header") %>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/navigation.css">
+        <link rel="stylesheet" href="css/footer.css">
+        <title>Magic Finger Braids</title>
+    </head>
+    <body>
+
+    <%- include("partials/NavigationBar/navigation-bar") %>
+
     
-    <nav class="navbar navbar-expand-lg position-fixed">
-        <div class="container-fluid">
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <a class="navbar-brand text-center md-brand" href="/">
-                <img class="navbar-logo" src="assets/magic-logo.png" alt="logo">
-            </a>
-
-            <span href="#" class="nav-item md-cart">
-                <img src="assets/cart.svg" alt="cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-            </span>
-            
-            <div class="offcanvas offcanvas-start side-bar" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-                <div class="offcanvas-header ps-5 pt-4 pb-0">
-                    <a href="#"><img src="assets/favorite.svg" alt=""></a>
-                    <button type="button" class="btn-close offcanvas-closer ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body px-5 pt-0 h-100 position-relative">
-                    <ul class="offcanvas-nav ps-0">
-                        <li class="offcanvas-item">
-                            <form action="/search" method="get" class="w-100 d-flex">
-                                <input class="w-100 px-2 py-2 search-bar" placeholder="Search products" type="search">
-                                <button type="submit" class="btn search-btn"></button>
-                            </form>
-                        </li>
-                        <li class="offcanvas-item">
-                        <a class="offcanvas-link first" href="/">HOME</a>
-                        </li>
-                        <li class="offcanvas-item">
-                        <a class="offcanvas-link" href="/shop">SHOP</a>
-                        </li>
-                        <li class="offcanvas-item">
-                        <a class="offcanvas-link" href="/about">ABOUT</a>
-                        </li>
-                        <li class="offcanvas-item">
-                        <a class="offcanvas-link" href="/contact">CONTACT</a>
-                        </li>
-                        
-                        <li class="offcanvas-item py-3 w-100 d-flex align-items-center login-btn">
-                            <a class="d-flex w-100 justify-content-between" href="/login">
-                                <span>LOGIN</span>
-                                <img src="assets/person.svg" alt="my account">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav gap-4">
-                    <li class="nav-item">
-                    <a class="nav-link active" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="/shop">Shop</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="/about">About</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="/contact">Contact</a>
-                    </li>
-                </ul>
-                <a class="navbar-brand text-center" href="/">
-                    <img class="navbar-logo" src="assets/magic-logo.png" alt="logo">
-                </a>
-                <ul class="navbar-nav nav-icons  gap-5 justify-content-end">
-                    <li class="nav-item">
-                        <img src="assets/lens.svg" alt="lens" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
-                    </li>
-                    <li class="nav-item">
-                        <img src="assets/favorite.svg" alt="favorite">
-                    </li>
-                    <li class="nav-item">
-                        <img src="assets/cart.svg" alt="cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-        <div class="offcanvas-header">
-            <button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body pt-4">
-            <form action="/search" method="get" class="w-100 d-flex">
-                <input class="w-100 px-2 py-2 search-bar" placeholder="Search products" type="search">
-                <button type="submit" class="btn search-btn"></button>
-            </form>
-        </div>
-    </div>
-
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasRightLabel">Cart</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body text-center mt-5">
-            <div class="bg-secondary bg-opacity-25 rounded-circle m-auto cart-container">
-                <img src="assets/empty-cart.svg" alt="cart">
-            </div>
-            <p class="mb-5 mt-3 text-secondary fw-semibold">Cart is empty.</p>
-            <button class="btn btn-outline-dark mt-5 px-5 py-3 rounded-0">
-                Continue Shopping
-            </button>
-        </div>
-      </div>
 
     <section id="main-section" class="position-relative">
         <div class="row position-absolute w-100 text-container">
