@@ -21,29 +21,68 @@
                 <li class="breadcrumb-item"><a href="#">Products</a></li>
             </ol>
             <!-- Filter Dropdowns -->
-            <div class="filter-container d-flex align-items-center">
-                <label for="sort">Sort by:</label>
+            <div class="filter-container border-2 border-start border-end px-4 py-1 d-flex gap-2 align-items-center">
+                <div class="filter-icon">
+                    <img src="assets/filter.svg" alt="">
+                </div>
                 <select class="form-select" id="sort" aria-label="Floating label select example">
-                    <option selected>default</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                    <option value="3">Three</option>
-                    <option value="3">Three</option>
-                </select>
-                <label for="filter">Filter:</label>
-                <select class="form-select" id="filter" aria-label="Floating label select example">
-                    <option selected>mixed</option>
-                    <option value="men">men</option>
-                    <option value="women">women</option>
+                    <option selected>Default sorting</option>
+                    <option value="1">Sort by popularity</option>
+                    <option value="2">Sort by rating</option>
+                    <option value="3">Sort by latest</option>
+                    <option value="3">Sort by price: low to high</option>
+                    <option value="3">Sort by price: high to low</option>
                 </select>
             </div>
         </div>
       </div>
-      
 
     <%- include("partials/Products/Products") %>
+
+    <button class="more-btn px-5 py-2 btn fw-semibold rounded-0 d-block mx-auto mt-5 btn-outline-dark">Load more</button>
 </section>
+
+<div class="offcanvas offcanvas-bottom" tabindex="-1" id="quickview" aria-labelledby="offcanvasBottomLabel">
+    <div class="offcanvas-header">
+        <button type="button" class="btn-close m-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body small">
+        <div class="row">
+            <div class="image-col col col-12 col-lg-6 mb-5">
+                <img class="quickview-img" src="assets/image2.jpg" alt="product">
+            </div>
+            <div class="col col-12 col-lg-6">
+                <h2>Crochet Braids Chocolate Cinnamon Ombre</h2>
+                <h4 class="mt-3">$26.40 - $31.35</h4>
+                <h6 class="mt-3">Style</h6>
+                <div class="hstack flex-wrap gap-3 mt-4">
+                    <button type="button" class="btn px-4 py-1 btn-outline-dark rounded-0 border-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="option 1">
+                        option 1
+                    </button>
+                    <button type="button" class="btn px-4 py-1 btn-outline-dark rounded-0 border-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="option 1">
+                        option 2
+                    </button>
+                    <button type="button" class="btn px-4 py-1 btn-outline-dark rounded-0 border-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="option 1">
+                        option 3
+                    </button>
+                    <button type="button" class="btn px-4 py-1 btn-outline-dark rounded-0 border-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="option 1">
+                        option 4
+                    </button>
+                </div>
+                <div class="hstack flex-wrap mt-5">
+                    <div class="qty-selector">
+                        <button class="btn rounded-0">-</button>
+                        <input type="number" value="1">
+                        <button class="btn rounded-0">+</button>
+                    </div>
+                    <button type="button" class="btn ms-auto px-4 py-2 bg-dark rounded-0 text-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="option 1">
+                        Add to cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <hr>
 

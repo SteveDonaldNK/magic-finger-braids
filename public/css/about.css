@@ -1,0 +1,8 @@
+.about-section {
+    padding: 8rem 5% 0;
+}
+
+.about-section p{
+    letter-spacing: 0.03rem;
+    font-weight: 500 !important;
+}

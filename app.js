@@ -30,4 +30,6 @@ app.use(passport.session());
 
 app.get('/', (req, res) => res.render("home", {featuredProducts: Products}));
 app.get('/shop', (req, res) => res.render("shop", {products: Products}));
+app.get('/about', (req, res) => res.render("about"));
+
 app.listen(port, () => console.log(`app listening on port ${port}!`))

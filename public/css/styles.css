@@ -1,26 +1,3 @@
-/* reset */
-
-.container-fluid {
-    padding: 0 !important;
-}
-
-
-:root {
-    --primary-color: #FAE0D8;
-    --secondary-color: #000;
-    --clear: #FFF;
-    --brown-color: #c9a14b;
-    --underline: #FFADAF;
-    --gray-clear: #9EA0A0;
-    --gray: #444444;
-    --gray-clear-xl: #BEBFBF;
-    --facebook: #1773EA;
-}
-
-body {
-    font-family: 'Manrope', sans-serif;
-}
-  
   /* Main section */
   #main-section {
     height: 100vh;
