@@ -1,65 +1,272 @@
 const products = [{
     name: "Med Box Braids",
     type: "women",
-    image: "assets/image1.jpg"
+    image: "assets/image1.jpg",
+    min: 200,
+    max: 300,
+    options: [{
+        name: 'Mid back',
+        price: 200
+    }, {
+        name: 'Lower',
+        price: 220
+    }, {
+        name: 'Waist',
+        price: 240
+    }, {
+        name: 'Butt',
+        price: 280
+    }, {
+        name: 'Thigh',
+        price: 300
+    }]
 }, {
     name: "Jumbo Knotless",
     type: "women",
-    image: "assets/image2.jpg"
+    image: "assets/image2.jpg",
+    min: 140,
+    max: 220,
+    options: [{
+        name: 'Mid back',
+        price: 140
+    }, {
+        name: 'Lower back',
+        price: 150
+    }, {
+        name: 'Waist',
+        price: 170
+    }, {
+        name: 'Butt',
+        price: 200
+    }, {
+        name: 'Thigh',
+        price: 220
+    }]
 }, {
-    name: "Medium Braids",
+    name: "Side Stitch Box Braids",
     type: "women",
-    image: "assets/image3.jpg"
+    image: "assets/image3.jpg",
+    min: 250,
+    max: null,
+    options: [{
+        name: 'Normal',
+        price: 250
+    }]
 }, {
-    name: "Box Braids",
+    name: "Kids Knotless",
     type: "women",
-    image: "assets/image4.jpg"
+    image: "assets/image17.jpg",
+    min: 200,
+    max: null,
+    options: [{
+        name: 'Normal',
+        price: 200
+    }]
+}, {
+    name: "Large Box Braids",
+    type: "women",
+    image: "assets/image4.jpg",
+    min: 150,
+    max: 250,
+    options: [{
+        name: 'Mid back',
+        price: 150
+    }, {
+        name: 'Lower back',
+        price: 180
+    }, {
+        name: 'Waist',
+        price: 200
+    }, {
+        name: 'Butt',
+        price: 220
+    }, {
+        name: 'Thigh',
+        price: 250
+    }]
 }, {
     name: "Kinky Twist",
     type: "women",
-    image: "assets/image5.jpg"
+    image: "assets/image5.jpg",
+    min: 150,
+    max: 200,
+    options: [{
+        name: 'Shoulder',
+        price: 150
+    }, {
+        name: 'Upper back',
+        price: 180
+    }, {
+        name: 'Mid back',
+        price: 200
+    }]
 }, {
     name: "Under Spring Twist",
     type: "women",
-    image: "assets/image6.jpg"
+    image: "assets/image6.jpg",
+    min: 120,
+    max: 180,
+    options: [{
+        name: 'Shoulder',
+        price: 120
+    }, {
+        name: 'Upper back',
+        price: 140
+    }, {
+        name: 'Mid back',
+        price: 180
+    }]
 }, {
     name: "Two Trand Twist",
     type: "men",
-    image: "assets/image7.jpg"
+    image: "assets/image7.jpg",
+    min: 100,
+    max: null,
+    options: [{
+        name: 'Normal',
+        price: 100
+    }]
 }, {
     name: "Medium Knotless",
     type: "women",
-    image: "assets/image8.jpg"
+    image: "assets/image8.jpg",
+    min: 220,
+    max: 340,
+    options: [{
+        name: 'Mid back',
+        price: 220
+    }, {
+        name: 'Lower back',
+        price: 240
+    }, {
+        name: 'Waist',
+        price: 260
+    }, {
+        name: 'Butt',
+        price: 300
+    }, {
+        name: 'Thigh',
+        price: 340
+    }]
 }, {
-    image: "assets/image9.jpg"
+    name: "Men plait",
+    type: "men",
+    image: "assets/image9.jpg",
+    min: 100,
+    max: null,
+    options: [{
+        name: 'Normal',
+        price: 100
+    }]
 }, {
-    name: "Under Cruchet",
+    name: "7-8 stitch Cornrow up do",
     type: "women",
-    image: "assets/image10.jpg"
+    image: "assets/image10.jpg",
+    min: 160,
+    max: null,
+    options: [{
+        name: 'Normal',
+        price: 160
+    }]
 }, {
-    name: "Small Cornrows up do",
+    name: "6 Stitch Cornrow",
     type: "women",
-    image: "assets/image11.jpg"
+    image: "assets/image11.jpg",
+    min: 120,
+    max: 0,
+    options: [{
+        name: 'Normal',
+        price: 120
+    }]
 }, {
     name: "Triangle Knotless",
     type: "women",
-    image: "assets/image12.jpg"
+    image: "assets/image12.jpg",
+    min: 240,
+    max: 340,
+    options: [{
+        name: 'Mid back',
+        price: 240
+    }, {
+        name: 'Lower back',
+        price: 280
+    }, {
+        name: 'Waist',
+        price: 320
+    }, {
+        name: 'Butt',
+        price: 340
+    }]
 }, {
     name: "Extra Small Knotless",
     type: "women",
-    image: "assets/image13.jpg"
-}, {
-    name: "",
-    type: "women",
-    image: "assets/image14.jpg"
+    image: "assets/image13.jpg",
+    min: 350,
+    max: 500,
+    options: [{
+        name: 'Mid back',
+        price: 350
+    }, {
+        name: 'Lower back',
+        price: 380,
+    }, {
+        name: 'Waist',
+        price: 400
+    }, {
+        name: 'Butt',
+        price: 450
+    }, {
+        name: 'Thigh',
+        price: 500
+    }]
 }, {
     name: "Large Knotless",
     type: "women",
-    image: "assets/image15.jpg"
+    image: "assets/image15.jpg",
+    min: 150,
+    max: 280,
+    options: [{
+        name: 'Mid back',
+        price: 150
+    }, {
+        name: 'Lower back',
+        price: 170
+    }, {
+        name: 'Waist',
+        price: 220
+    }, {
+        name: 'Butt',
+        price: 240
+    }, {
+        name: 'Thigh',
+        price: 280
+    }]
 }, {
     name: "Fulani Cornrow",
     type: "women",
-    image: "assets/image16.jpg"
+    image: "assets/image16.jpg",
+    min: 240,
+    max: 280,
+    options: [{
+        name: 'Mid back',
+        price: 240
+    }, {
+        name: 'Lower back',
+        price: 260
+    }, {
+        name: 'Waist',
+        price: 280
+    }]
+}, {
+    name: "Half Stitch/Half Braid",
+    type: "women",
+    image: "assets/image18.jpg",
+    min: 200,
+    max: null,
+    options: [{
+        name: 'Normal',
+        price: 200
+    }]
 }]
 
 module.exports = products;

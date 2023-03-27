@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg position-fixed">
+<nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
 
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
@@ -9,13 +9,17 @@
             <img class="navbar-logo" src="assets/magic-logo.png" alt="logo">
         </a>
 
-        <span href="#" class="nav-item md-cart">
-            <img src="assets/cart.svg" alt="cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+        <span href="#" class="nav-item md-cart position-relative">
+            <img onclick="getCart()" src="assets/cart.svg" alt="cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            <span class="position-absolute top-0 start-100 translate-middle badge cart rounded-pill">
+            </span>
         </span>
         
         <div class="offcanvas offcanvas-start side-bar" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header ps-5 pt-4 pb-0">
-                <a href="#"><img src="assets/favorite.svg" alt=""></a>
+                <a href="#">
+                    <img src="assets/favorite.svg" alt="">
+                </a>
                 <button type="button" class="btn-close offcanvas-closer ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body px-5 pt-0 h-100 position-relative">
@@ -71,11 +75,15 @@
                 <li class="nav-item">
                     <img src="assets/lens.svg" alt="lens" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
                 </li>
-                <li class="nav-item">
+                <li class="nav-item position-relative">
                     <img src="assets/favorite.svg" alt="favorite">
+                    <span class="position-absolute top-0 start-100 translate-middle badge fav rounded-pill">
+                    </span>
                 </li>
-                <li class="nav-item">
-                    <img src="assets/cart.svg" alt="cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                <li class="nav-item position-relative">
+                    <img onclick="getCart()" src="assets/cart.svg" alt="cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <span class="position-absolute top-0 start-100 translate-middle badge cart rounded-pill">
+                    </span>
                 </li>
             </ul>
         </div>
@@ -89,17 +97,17 @@
     <div class="offcanvas-body pt-4">
         <form action="/search" method="get" class="w-100 d-flex">
             <input class="w-100 px-2 py-2 search-bar" placeholder="Search products" type="search">
-            <button type="submit" class="btn search-btn"></button>
+            <button type="reset" class="btn search-btn"></button>
         </form>
     </div>
 </div>
 
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+<div class="offcanvas offcanvas-end px-3 py-2" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasRightLabel">Cart</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body text-center mt-5">
+    <div class="offcanvas-body text-center mt-2 offcanvasRight-body">
         <div class="bg-secondary bg-opacity-25 rounded-circle m-auto cart-container">
             <img src="assets/empty-cart.svg" alt="cart">
         </div>
@@ -110,4 +118,12 @@
             </button>
         </a>
     </div>
-  </div>
+    <div class="offcanvas-body text-center mt-2 item-list">
+        
+    </div>
+    <div class="offcanvas-body offcanvas-body-total justify-content-center d-flex flex-column hide">
+        <p class="text-secondary">Subtotal: <span class="amount"></span></p>
+        <a class="mb-2" href="/cart"><button class="btn btn-outline-dark w-100 rounded-0">View Cart</button></a>
+        <a href="/checkout"><button class="btn btn-dark w-100 rounded-0">checkout</button></a>
+    </div>
+</div>

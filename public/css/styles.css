@@ -73,7 +73,7 @@
   }
   
   #main-section .row {
-    top: 30%;
+    top: 15%;
     margin: 0 !important;
   }
   
@@ -89,7 +89,7 @@
   }
   
   #main-section .row p {
-    width: 25rem;
+    width: 30rem;
     font-size: 1rem;
     line-height: 1.6rem;
     color: var(--gray);
@@ -137,7 +137,7 @@
   
   @media (max-width:750px) {
     #main-section .row {
-      top: 35%;
+      top: 25%;
     }
 
     #main-section .main-social span h2 {
@@ -177,7 +177,7 @@
 @media (max-width:650px) {
 
   #main-section .main-social {
-    padding: 5% !important;
+    padding: 3% 5% !important;
   }
 
   #main-section .main-social span h2.contracted {
@@ -213,7 +213,7 @@
     }
 
     #main-section .row .col .btn {
-      margin-top: 0;
+      margin-top: 1rem;
       padding: 1rem 4rem;
     }
 
@@ -244,16 +244,11 @@
     }
 
     #main-section .row.text-container {
-      top: 60%;
       text-align: center;
     }
 
     #main-section .row .col .btn {
         padding: 0.6rem 2rem;
-    }
-
-    #main-section .main-img {
-        bottom: 40%;
     }
 }
 

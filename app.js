@@ -10,7 +10,12 @@ const app = express();
 
 const port = 3000;
 
+mongoose.connect('mongodb://127.0.0.1:27017/magicDB', { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('Could not connect to MongoDB', err));
+
 app.use(express.static("public"));
+app.use(express.json());
 app.use(express.urlencoded({
     extended: true
 }));
@@ -26,10 +31,46 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// mongoose.connect("mongodb://localhost:27017/shopDB");
+const productSchema = new mongoose.Schema({
+    name: String,
+    type: String,
+    image: String,
+    options: Array,
+    min: Number,
+    max: Number,
+})
 
-app.get('/', (req, res) => res.render("home", {featuredProducts: Products}));
-app.get('/shop', (req, res) => res.render("shop", {products: Products}));
+const Product = mongoose.model('product', productSchema);
+
+// Products.forEach(product => {
+//     const newProduct = new Product({
+//         name: product.name,
+//         type: product.type,
+//         image: product.image,
+//         options: product.options,
+//         min: product.min,
+//         max: product.max,
+//     });
+
+//     newProduct.save();
+// })
+
+app.post('/product', async (req, res) => {
+    const product = await Product.findById(req.body.id);
+    res.send(product);
+});
+
+app.get('/', (req, res) => {
+    console.log("request");
+    res.render("home", {featuredProducts: Products})
+});
+    
+app.get('/shop', async (req, res) => {
+    const products = await Product.find();
+    res.render("shop", {products});
+});
 app.get('/about', (req, res) => res.render("about"));
+app.get('/contact', (req, res) => res.render("contact"));
+app.get('/info', (req, res) => res.render("terms"));
 
 app.listen(port, () => console.log(`app listening on port ${port}!`))
