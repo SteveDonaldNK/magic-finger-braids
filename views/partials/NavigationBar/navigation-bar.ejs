@@ -104,14 +104,14 @@
 
 <div class="offcanvas offcanvas-end px-3 py-2" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasRightLabel">Cart</h5>
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">Bookings</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body text-center mt-2 offcanvasRight-body">
         <div class="bg-secondary bg-opacity-25 rounded-circle m-auto cart-container">
             <img src="assets/empty-cart.svg" alt="cart">
         </div>
-        <p class="mb-5 mt-3 text-secondary fw-semibold">Cart is empty.</p>
+        <p class="mb-5 mt-3 text-secondary fw-semibold">No bookings yet</p>
         <a href="/shop">
             <button class="btn btn-outline-dark mt-5 px-5 py-3 rounded-0 shop-btn">
                 Continue Shopping
@@ -122,7 +122,7 @@
         
     </div>
     <div class="offcanvas-body offcanvas-body-total justify-content-center d-flex flex-column hide">
-        <p class="text-secondary">Subtotal: <span class="amount"></span></p>
+        <p class="text-secondary">Subtotal: <span id="amount">0</span></p>
         <a class="mb-2" href="/cart"><button class="btn btn-outline-dark w-100 rounded-0">View Cart</button></a>
         <a href="/checkout"><button class="btn btn-dark w-100 rounded-0">checkout</button></a>
     </div>

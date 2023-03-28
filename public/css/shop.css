@@ -167,6 +167,27 @@ hr {
 .drawer.reveal {
     bottom: 0;
     z-index: 25;
+    padding-bottom: 1.5rem !important;
+}
+
+.drawer::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Style the thumb */
+  .drawer::-webkit-scrollbar-thumb {
+    background-color: var(--gray-clear); /* Color of the thumb */
+    border-radius: 15px /* Rounded corners of the thumb */
+  }
+  
+  /* Style the track */
+  .drawer::-webkit-scrollbar-track {
+    background-color: #f2f2f2; /* Color of the track */
+    border-radius: 20px;
+  }
+
+.drawer {
+    overflow: auto;
 }
 
 .drawer .quickview-img {
@@ -290,8 +311,13 @@ hr {
 
 @media (max-width: 450px) {
 
-    .product-section .card {
+    .drawer .quickview-img {
+        height: 20rem;
         width: 100%;
+    }
+
+    .drawer .drawer-body .image-col {
+        height: 60% !important;
     }
 
     .product-section .card .card-img-top {

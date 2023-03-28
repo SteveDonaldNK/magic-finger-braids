@@ -61,7 +61,6 @@ app.post('/product', async (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    console.log("request");
     res.render("home", {featuredProducts: Products})
 });
     

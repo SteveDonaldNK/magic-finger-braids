@@ -173,7 +173,7 @@ const products = [{
     type: "women",
     image: "assets/image11.jpg",
     min: 120,
-    max: 0,
+    max: null,
     options: [{
         name: 'Normal',
         price: 120
