@@ -1,0 +1,15 @@
+#product-section {
+    padding: 6rem 5% 0;
+}
+
+.product-body .quickview-img {
+    height: 35rem;
+    width: 80%;
+    object-fit: cover;
+    object-position: top;
+}
+
+#product-section .breadcrumb-item a {
+    text-decoration: none;
+    color: var(--gray-clear);
+}

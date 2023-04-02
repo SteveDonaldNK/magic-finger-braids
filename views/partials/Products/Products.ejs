@@ -16,8 +16,8 @@
                 <a class="text-secondary" href="/shop/<%= product._id %>">
                   <p class="card-text fw-semibold mb-0 product-name"><%= product.name %></p>
                 </a>
-                <button class="btn border-0 p-0">
-                  <img src="assets/favorite.svg" class="fav-icon" alt="add to favorite">
+                <button onclick="addToFavorites(event, '<%= product._id %>')" class="btn border-0 p-0">
+                  <img src="assets/favorite.svg" id="<%= product._id %>" class="fav-icon" alt="add to favorite">
                 </button>
               </div>
               <div class="price-slider mt-1 w-100 position-relative overflow-hidden">

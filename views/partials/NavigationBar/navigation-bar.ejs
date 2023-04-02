@@ -6,19 +6,21 @@
         </button>
 
         <a class="navbar-brand text-center md-brand" href="/">
-            <img class="navbar-logo" src="assets/magic-logo.png" alt="logo">
+            <img class="navbar-logo" src="/assets/magic-logo.png" alt="logo">
         </a>
 
         <span href="#" class="nav-item md-cart position-relative">
-            <img onclick="getCart()" src="assets/cart.svg" alt="cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            <img onclick="getCart()" src="/assets/cart.svg" alt="cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
             <span class="position-absolute top-0 start-100 translate-middle badge cart rounded-pill">
             </span>
         </span>
         
         <div class="offcanvas offcanvas-start side-bar" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header ps-5 pt-4 pb-0">
-                <a href="#">
-                    <img src="assets/favorite.svg" alt="">
+                <a class="position-relative" href="#">
+                    <img src="/assets/favorite.svg" alt="">
+                    <span class="position-absolute top-0 start-100 translate-middle badge fav rounded-pill">
+                    </span>
                 </a>
                 <button type="button" class="btn-close offcanvas-closer ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
@@ -69,19 +71,19 @@
                 </li>
             </ul>
             <a class="navbar-brand text-center" href="/">
-                <img class="navbar-logo" src="assets/magic-logo.png" alt="logo">
+                <img class="navbar-logo" src="/assets/magic-logo.png" alt="logo">
             </a>
             <ul class="navbar-nav nav-icons  gap-5 justify-content-end">
                 <li class="nav-item">
-                    <img src="assets/lens.svg" alt="lens" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+                    <img src="/assets/lens.svg" alt="lens" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
                 </li>
                 <li class="nav-item position-relative">
-                    <img src="assets/favorite.svg" alt="favorite">
+                    <img src="/assets/favorite.svg" alt="favorite">
                     <span class="position-absolute top-0 start-100 translate-middle badge fav rounded-pill">
                     </span>
                 </li>
                 <li class="nav-item position-relative">
-                    <img onclick="getCart()" src="assets/cart.svg" alt="cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <img onclick="getCart()" src="/assets/cart.svg" alt="cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                     <span class="position-absolute top-0 start-100 translate-middle badge cart rounded-pill">
                     </span>
                 </li>
@@ -109,7 +111,7 @@
     </div>
     <div class="offcanvas-body text-center mt-2 offcanvasRight-body">
         <div class="bg-secondary bg-opacity-25 rounded-circle m-auto cart-container">
-            <img src="assets/empty-cart.svg" alt="cart">
+            <img src="/assets/empty-cart.svg" alt="cart">
         </div>
         <p class="mb-5 mt-3 text-secondary fw-semibold">No bookings yet</p>
         <a href="/shop">

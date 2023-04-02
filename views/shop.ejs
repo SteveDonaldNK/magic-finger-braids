@@ -35,7 +35,9 @@
         </div>
       </div> 
 
-    <%- include("partials/Products/Products") %>
+      <div class="container-fluid product-container">
+        <%- include("partials/Products/Products") %>
+      </div>
 
     <button class="more-btn px-5 py-2 btn fw-semibold rounded-0 d-block mx-auto mt-5 btn-outline-dark">Load more</button>
 </section>
@@ -56,8 +58,8 @@
                 <div id="options" class="hstack w-100 flex-wrap gap-3 justify-content-between mt-2">
                     
                 </div>
-                <div class="text-danger" id=""></div>
-                <div class="hstack flex-wrap mt-5">
+                <div class="text-danger mt-2" id="option-error"></div>
+                <div class="hstack flex-wrap mt-4">
                     <div class="option-price">
                         <p class="text-secondary">Price: <span id="price"></span></p>
                     </div>
@@ -68,10 +70,12 @@
             </div>
         </div>
     </div>
-  </div>
+</div>
 
 <hr>
 
 <div class="overlay"></div>
+
+<script src="/js/shop.js"></script>
 
 <%- include("partials/footer") %>
