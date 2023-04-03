@@ -1,4 +1,4 @@
-<%- include("/partials/header") %>
+<%- include("./partials/header") %>
         <link rel="stylesheet" href="css/navigation.css">
         <link rel="stylesheet" href="css/shop.css">
         <link rel="stylesheet" href="css/footer.css">
@@ -6,7 +6,7 @@
     </head>
     <body>
 
-<%- include("/partials/NavigationBar/navigation-bar") %>
+<%- include("./partials/NavigationBar/navigation-bar") %>
 
 
 
@@ -36,7 +36,7 @@
       </div> 
 
       <div class="container-fluid product-container">
-        <%- include("/partials/Products/Products") %>
+        <%- include("./partials/Products/Products") %>
       </div>
 
     <button class="more-btn px-5 py-2 btn fw-semibold rounded-0 d-block mx-auto mt-5 btn-outline-dark">Load more</button>
@@ -78,4 +78,4 @@
 
 <script src="/js/shop.js"></script>
 
-<%- include("/partials/footer") %>
+<%- include("./partials/footer") %>
