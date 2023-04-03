@@ -13,6 +13,68 @@ const fav = JSON.parse(localStorage.getItem('favorites')) || [];
     badge.innerHTML = fav.length;
 });
 
+function updateQuantity(productId, productOption, operation) {
+    // Get the existing product from local storage
+    let items = JSON.parse(localStorage.getItem('cartItems'));
+  let itemToUpdate = items.find(item => item.id === productId && item.option === productOption);
+
+  if (itemToUpdate && itemToUpdate.quantity <= 99 ) {
+    if (operation === 'increase') {
+      itemToUpdate.quantity += 1;
+    } else if (operation === 'reduce') {
+      itemToUpdate.quantity -= 1;
+    }
+
+    // If the quantity is zero or less, remove the item from the cart
+    if (itemToUpdate.quantity <= 0) {
+      items = items.filter(item => !(item.id === productId && item.option === productOption));
+    }
+
+    if (items.length === 0) {
+        const cartBadge = document.querySelectorAll(".cart");
+        const emptyCart = document.querySelector(".offcanvasRight-body");
+        const btns = document.querySelector(".offcanvas-body-total");
+        cartBadge.forEach(badge => badge.innerHTML = '');
+        emptyCart.classList.remove('hide');
+        btns.classList.add('hide');
+    }
+
+    localStorage.setItem('cartItems', JSON.stringify(items));
+  }
+  getCart();
+}
+
+function isFavorite(id) {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    let found = favorites.find(item => item === id);
+    if (found) {
+        const favBtn = document.querySelector(".favorite");
+        favBtn.innerHTML = "Remove from wishlist"
+    }
+}
+
+function addfav(id, e) {
+    const favBadge = document.querySelectorAll(".fav");
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+    // check if product already exists in favorites
+    const itemIndex = favorites.findIndex(item => item === id);
+
+    if (itemIndex < 0) {
+        favorites.push(id);
+        e.target.innerHTML = "Remove from wishlist"
+    } else {
+            favorites.splice(itemIndex, 1);
+        e.target.innerHTML = "Add to wishlist"
+    }
+
+    favBadge.forEach(badge => {
+        badge.classList.remove('d-none');
+        (favorites.length === 0 ? badge.innerHTML = '' : badge.innerHTML = favorites.length )
+    })
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+}
+
 function removeFromCart(id, option) {
     // retrieve existing cart items from local storage
     const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
@@ -65,9 +127,9 @@ function getCart() {
                 <p class="mb-0">${item.name} (${item.option})</p>
                 <div class="d-flex w-100 justify-content-between unit-data">
                 <div class="d-flex align-items-end">
-                    <button class="btn qty-controller me-2">-</button>
+                    <button onclick="updateQuantity(\'${item.id}\',\'${item.option}\',\'reduce\')" class="btn me-2">-</button>
                     <input min="0" max="99" type="number" value="${item.quantity}">
-                    <button class="btn qty-controller ms-2">+</button>
+                    <button onclick="updateQuantity(\'${item.id}\',\'${item.option}\',\'increase\')" class="btn ms-2">+</button>
                 </div>
                 <div class="d-flex align-items-end">
                     <p class="mb-0 price">$${item.quantity * item.price}</p>

@@ -170,19 +170,19 @@ function showItem(id) {
 
             const buttons = document.querySelectorAll('#options button');
             buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                buttons.forEach(otherButton => {
-                if (otherButton !== button) {
-                    error.classList.add('d-none');
-                    otherButton.classList.remove('btn-dark', 'selected');
-                    otherButton.classList.add('btn-outline-dark');
-                }
+                button.addEventListener('click', () => {
+                    buttons.forEach(otherButton => {
+                    if (otherButton !== button) {
+                        error.classList.add('d-none');
+                        otherButton.classList.remove('btn-dark', 'selected');
+                        otherButton.classList.add('btn-outline-dark');
+                    }
+                    });
+                    addBtn.value = JSON.stringify({price: button.value, name: button.id});
+                    button.classList.remove('btn-outline-dark');
+                    button.classList.add('btn-dark', 'selected');
+                    price.innerHTML = `$${button.value}`;
                 });
-                addBtn.value = JSON.stringify({price: button.value, name: button.id});
-                button.classList.remove('btn-outline-dark');
-                button.classList.add('btn-dark', 'selected');
-                price.innerHTML = `$${button.value}`;
-            });
             });
         })
     })

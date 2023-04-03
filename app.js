@@ -107,5 +107,7 @@ app.get('/contact', (req, res) => res.render("contact"));
 
 app.get('/info', (req, res) => res.render("terms"));
 
+app.get('/checkout', (req, res) => res.render("checkout"));
+
 
 app.listen(port, () => console.log(`app listening on port ${port}!`))
