@@ -1,4 +1,4 @@
-<%- include("partials/header") %>
+<%- include("/partials/header") %>
 <link rel="stylesheet" href="/css/navigation.css">
 <link rel="stylesheet" href="/css/footer.css">
 <link rel="stylesheet" href="/css/product.css">
@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<%- include("partials/NavigationBar/navigation-bar") %>
+<%- include("/partials/NavigationBar/navigation-bar") %>
 
 <section id="product-section">
     <div class="product-header py-3">
@@ -66,5 +66,5 @@
 
 
 <script src="/js/product.js"></script>
-<%- include("partials/footer") %>
+<%- include("/partials/footer") %>
 <script>isFavorite('<%= product._id %>')</script>
