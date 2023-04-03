@@ -4,6 +4,7 @@ const ejs = require('ejs');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const fs = require('fs');
+const path = require('path');
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
 const Products = require('./products');
@@ -23,6 +24,7 @@ app.use(express.urlencoded({
     extended: true
 }));
 
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // app.use(session({
