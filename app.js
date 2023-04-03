@@ -17,7 +17,7 @@ mongoose.connect(`mongodb+srv://${process.env.USER_NAME}:${process.env.USER_PASS
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('Could not connect to MongoDB', err));
 
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 app.use(express.json());
 app.use(express.urlencoded({
     extended: true
@@ -25,14 +25,14 @@ app.use(express.urlencoded({
 
 app.set('view engine', 'ejs');
 
-app.use(session({
-    secret: "magic-finger-braids-secret-access-key-by-donald-237-03-03-2023",
-    resave: false,
-    saveUninitialized: false
-}));
+// app.use(session({
+//     secret: "magic-finger-braids-secret-access-key-by-donald-237-03-03-2023",
+//     resave: false,
+//     saveUninitialized: false
+// }));
 
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 const productSchema = new mongoose.Schema({
     name: String,
