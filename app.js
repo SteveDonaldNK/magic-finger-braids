@@ -11,10 +11,7 @@ const testimonials = require('./testimonials');
 
 const app = express();
 
-const port = process.env.PORT;
-if (port === null || port === "") {
-    port === 3000;
-}
+const port = process.env.PORT || 3000
 
 mongoose.connect(`mongodb+srv://${process.env.USER_NAME}:${process.env.USER_PASSWORD}@cluster0.soor9qp.mongodb.net/magicDB`, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
