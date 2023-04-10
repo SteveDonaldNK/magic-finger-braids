@@ -61,3 +61,46 @@ input.form-check-input:checked {
   .total p {
     font-weight: 500;
   }
+
+  .checkout-items-container {
+    position: absolute;
+    top: 0;
+    padding: 0 0.8rem;
+  }
+
+  #checkout-section .right-container {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0;
+  }
+
+  #checkout-section .right-container {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0;
+    border: 2px solid var(--gray-clear-xl);
+    border-bottom: 0;
+  }
+
+  .info-container {
+    border: 2px solid var(--gray-clear-xl);
+    border-top: 0;
+  }
+  
+  #checkout-section .right-container::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  #checkout-section .right-container::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+  }
+  
+  #checkout-section .right-container::-webkit-scrollbar-thumb {
+    background-color: var(--gray-clear);
+    border-radius: 5px;
+  }
+  
+  #checkout-section .right-container::-webkit-scrollbar-thumb:hover {
+    background-color: var(--gray);
+  }
+  

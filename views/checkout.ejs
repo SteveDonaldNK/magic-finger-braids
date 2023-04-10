@@ -80,19 +80,21 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-12">
-                  <button class="btn btn-dark" type="submit">Submit form</button>
-                </div>
               </form>
         </div>
-        <div class="col-12 col-lg-4 col-md-6">
-            <div class="checkout-items">
+        <div class="col-12 col-lg-4 col-md-6 position-relative right-container">
+          <div class="checkout-items-container w-100">
+            <div class="checkout-items pt-3">
 
             </div>
-            <div>
-                <p>Total</p>
-            </div>
-
+          </div>
+        </div>
+        <div class="col-12 col-lg-8 col-md-6"></div>
+        <div class="col-12 col-lg-4 col-md-6 d-flex flex-column info-container pt-4 pb-3">
+          <strong>
+            <p class="fs-5">Total: $<span class="checkout-total"></span></p>
+          </strong>
+          <button class="btn btn-dark rounded-0 py-2" type="submit" onclick="checkout()">Proceed to checkout</button>
         </div>
     </div>
 </section>

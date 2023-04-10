@@ -41,11 +41,10 @@ function checkout() {
 
 function listItems() {
     const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    // const subTotal = document.querySelector("#amount");
+    const total = document.querySelector(".checkout-total");
     const items = document.querySelector('.checkout-items');
-    console.log(items);
     items.innerHTML = ''
-    // subTotal.innerHTML = ''
+    total.innerHTML = ''
     cartItems.forEach((item) => {
         const itemHtml = `
         <div class="d-flex item-container mb-4 position-relative">
@@ -56,12 +55,8 @@ function listItems() {
             <div class="content-container ms-4 w-100 d-flex">
                 <p class="mb-0">${item.name} (${item.option})</p>
                 <div class="d-flex w-100 justify-content-between unit-data">
-                <div class="d-flex align-items-end">
-                    <button onclick="updateQuantity(\'${item.id}\',\'${item.option}\',\'reduce\')" class="btn me-2">-</button>
-                    <input min="0" max="99" type="number" value="${item.quantity}">
-                    <button onclick="updateQuantity(\'${item.id}\',\'${item.option}\',\'increase\')" class="btn ms-2">+</button>
-                </div>
-                <div class="d-flex align-items-end">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <p class="mb-0">Quantity: ${item.quantity}</p>
                     <p class="mb-0 price">$${item.quantity * item.price}</p>
                 </div>
                 </div>
@@ -70,7 +65,7 @@ function listItems() {
         <hr class="w-100 my-4 mx-0">
         `;
         items.innerHTML += itemHtml;
-        // subTotal.innerHTML = Number(subTotal.innerHTML) + (item.price * item.quantity);
+        total.innerHTML = Number(total.innerHTML) + (item.price * item.quantity);
       }
     );
 }

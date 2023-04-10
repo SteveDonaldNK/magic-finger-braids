@@ -42,6 +42,7 @@ function updateQuantity(productId, productOption, operation) {
     localStorage.setItem('cartItems', JSON.stringify(items));
   }
   getCart();
+  window.location.pathname === '/checkout'&&listItems();
 }
 
 function isFavorite(id) {
@@ -93,6 +94,7 @@ function removeFromCart(id, option) {
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
         //update ui
         getCart();
+        window.location.pathname === '/checkout'&&listItems();
         if (cartItems.length === 0) {
             const cartBadge = document.querySelectorAll(".cart");
             const emptyCart = document.querySelector(".offcanvasRight-body");
