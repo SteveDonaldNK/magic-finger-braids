@@ -12,7 +12,7 @@
 
 <section class="product-section">
     <h1 class="text-center heading">Shop</h1>
-    
+    <div class="category-bar w-100 bg-dark h-25"></div>
     <div class="container-fluid">
         <div class="d-flex top-bar pt-4 pb-3 justify-content-between align-items-center">
             <!-- Breadcrumb -->
@@ -21,17 +21,29 @@
                 <li class="breadcrumb-item"><a href="/shop">Shop</a></li>
             </ol>
             <!-- Filter Dropdowns -->
-            <div class="filter-container border-2 border-start border-end px-4 py-1 d-flex gap-2 align-items-center">
-                <div class="filter-icon">
-                    <img src="assets/filter.svg" alt="">
+            <form id="update-form" action="/shop" method="get">
+                <div class="d-flex">
+                    <div class="filter-container border-2 border-start px-4 py-1 d-flex gap-2 align-items-center">
+                        <div class="filter-icon">
+                            <img src="assets/filter.svg" alt="">
+                        </div>
+                        <select  class="form-select" id="filter" name="filterby" aria-label="Floating label select example">
+                            <option selected value="">Filters</option>
+                            <option value="women">For Women</option>
+                            <option value="men">For Men</option>
+                            <option value="kids">For Kids</option>
+                        </select>
+                    </div>
+                    <div class="filter-container border-2 border-start border-end px-4 py-1 d-flex gap-2 align-items-center">
+                        <select class="form-select" id="sort" name="sortby" aria-label="Floating label select example">
+                            <option selected value="">Default sorting</option>
+                            <option value="latest">Sort by latest</option>
+                            <option value="low">Sort by price: low to high</option>
+                            <option value="high">Sort by price: high to low</option>
+                        </select>
+                    </div>
                 </div>
-                <select onchange="sort(event)" class="form-select" id="sort" aria-label="Floating label select example">
-                    <option selected>Default sorting</option>
-                    <option value="1">Sort by latest</option>
-                    <option value="2">Sort by price: low to high</option>
-                    <option value="3">Sort by price: high to low</option>
-                </select>
-            </div>
+            </form>
         </div>
       </div> 
 
@@ -48,7 +60,7 @@
     </div>
     <div class="drawer-body">
         <div class="row">
-            <div class="image-col col col-12 col-lg-6 col-sm-6 mb-5">
+            <div class="image-col col col-12 col-lg-6 col-sm-6">
                 <img class="quickview-img" src="assets/image2.jpg" alt="product">
             </div>
             <div class="col col-12 col-lg-6 col-sm-6">

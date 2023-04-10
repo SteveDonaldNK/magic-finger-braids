@@ -67,26 +67,7 @@ app.post('/product', async (req, res) => {
 
 app.post('/sort-products', async (req, res) => {
     let products = [];
-    switch (req.body.id) {
-        case '1':
-            products = await Product.find().sort({updatedAt: 1});
-            break;
     
-        case '2':
-            products = await Product.find().sort({min: 1} );
-            break;
-    
-        case '3':
-            products = await Product.find().sort({min: -1} );
-            break;
-    
-        default:
-            products = await Product.find();
-            break;
-    }
-    const template = fs.readFileSync(__dirname + '/views/partials/Products/Products.ejs', 'utf8');
-    const html = ejs.render(template, {products});
-    res.send(html);
 });
 
 app.get('/', (req, res) => {
@@ -94,8 +75,53 @@ app.get('/', (req, res) => {
 });
     
 app.get('/shop', async (req, res) => {
-    const products = await Product.find();
-    res.render("shop", {products});
+    const sortby = req.query.sortby;
+    const filterby = req.query.filterby;
+    const update = req.query.update;
+    let products = [];
+
+    switch (sortby) {
+        case 'latest':
+            products = await Product.find().sort({updatedAt: 1});
+            break;
+
+        case 'low':
+            products = await Product.find().sort({min: 1} );
+            break;
+
+        case 'high':
+            products = await Product.find().sort({min: -1} );
+            break;
+
+        default:
+            products = await Product.find();
+            break;
+    }
+    switch (filterby) {
+        case 'women':
+            products = products.filter(product => product.type === 'women')
+            break;
+
+        case 'men':
+            products = products.filter(product => product.type === 'men')
+            break;
+
+        case 'kids':
+            products = products.filter(product => product.type === 'kids')
+            break;
+
+        default:
+            products = products;
+            break;
+    }
+
+    if (update !== undefined) {
+        const template = fs.readFileSync(__dirname + '/views/partials/Products/Products.ejs', 'utf8');
+        const html = ejs.render(template, {products});
+        res.send(html);
+    } else {
+        res.render("shop", {products});
+    }
 });
 
 app.get('/shop/:productId', async (req, res) => {

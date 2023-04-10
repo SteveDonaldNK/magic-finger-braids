@@ -7,6 +7,47 @@ const addBtn = document.querySelector('.add-to-cart');
 const favIcons = document.querySelectorAll(".fav-icon");
 const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 const error = document.querySelector("#option-error");
+const updaters = document.querySelectorAll(".form-select");
+const updateForm = document.querySelector('#update-form');
+const filterSelect = document.querySelector('#filter')
+const sortSelect = document.querySelector('#sort')
+
+checkParams();
+
+function checkParams() {
+    const params = window.location.search;
+    const searchParams = new URLSearchParams(params);
+    if (params !== '') {
+        sortSelect.value = searchParams.get('sortby');
+        filterSelect.value = searchParams.get('filterby');
+    }
+}
+
+updaters.forEach(updater => {
+    updater.addEventListener('change', function(e) {
+        updateForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+        });
+        const formData = new FormData(updateForm);
+        const searchParams = new URLSearchParams();
+        formData.forEach((value, key) => {
+            if (value) { // Only add if the value is not empty or undefined
+              searchParams.append(key, value);
+            }
+          });
+          
+        const query = searchParams.toString();
+        const url = `${window.location.pathname}?${query}`;
+        const reqUrl = url + '&update=true';
+        window.history.pushState(null, null, url);
+        fetch(reqUrl)
+            .then(response => response.text())
+            .then(html => {
+                const productList = document.querySelector('.product-container');
+                productList.innerHTML = html;
+            });
+    });
+});
 
 favIcons.forEach(icon => {
     if (favorites.includes(icon.id)) {
@@ -191,32 +232,53 @@ function showItem(id) {
 
 function sort(e) {
     const key = e.target.value;
+    history.pushState({}, '', `/shop?sortby=${key}`)
     switch (key) {
-        case '1':
-            fetchItems(key)
+        case 'latest':
+            fetchItems("sortby="+key)
             break;
 
-        case '2':
-            fetchItems(key)
+        case 'low':
+            fetchItems("sortby="+key)
             break;
 
-        case '3':
-            fetchItems(key)
+        case 'high':
+            fetchItems("sortby="+key)
             break;
     
         default:
+            history.pushState({}, '', '/shop')
+            fetchItems(key)
+            break;
+    }
+}
+
+function filter(e) {
+    const key = e.target.value;
+    history.pushState({}, '', `/shop?sortby=${key}`)
+    switch (key) {
+        case 'latest':
+            fetchItems("sortby="+key)
+            break;
+
+        case 'low':
+            fetchItems("sortby="+key)
+            break;
+
+        case 'high':
+            fetchItems("sortby="+key)
+            break;
+    
+        default:
+            history.pushState({}, '', '/shop')
             fetchItems(key)
             break;
     }
 }
 
 function fetchItems(key) {
-    fetch('/sort-products', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ id: key })
+    fetch(`/shop?${key}&update=true`, {
+        method: 'GET'
     })
     .then(res => res.text())
     .then(html => {

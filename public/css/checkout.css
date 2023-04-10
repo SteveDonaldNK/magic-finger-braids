@@ -1,3 +1,63 @@
 #checkout-section {
-    padding: 8rem 5% 0;
+    padding: 8rem 5%;
 }
+
+/* Select the input with the primary class and change its box shadow */
+input.form-control:focus, input.form-check-input:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
+    border-color:  rgba(0, 0, 0, 0.25);
+}
+
+input.form-check-input:checked {
+    background-color: var(--secondary-color);
+}
+
+.item-img {
+    height: 5rem;
+    width: 3.8rem;
+    object-fit: cover;
+  }
+
+  .content-container {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .content-container p {
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: start;
+  }
+
+  .content-container input {
+    border: 0;
+    width: 1.5rem;
+    text-align: center;
+  }
+
+  .content-container input:focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  .content-container button {
+    font-weight: 500 !important;
+    border-radius: 50% !important;
+    height: 2rem;
+    width: 2rem;
+    padding: 0;
+  }
+
+  .content-container button:active,
+  .content-container button:hover {
+    border-color: var(--brown-color);
+    background-color: var(--brown-color);
+  }
+
+  .total {
+    height: 40%;
+  }
+
+  .total p {
+    font-weight: 500;
+  }

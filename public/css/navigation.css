@@ -264,3 +264,10 @@ body {
         width: 100% !important;
       }
     }
+
+    /* Hide the number indicators on number inputs */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
