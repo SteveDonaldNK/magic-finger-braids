@@ -39,6 +39,7 @@ app.set('view engine', 'ejs');
 const productSchema = new mongoose.Schema({
     name: String,
     type: String,
+    category: String,
     image: String,
     options: Array,
     min: Number,
@@ -47,18 +48,19 @@ const productSchema = new mongoose.Schema({
 
 const Product = mongoose.model('product', productSchema);
 
-// Products.forEach(product => {
-//     const newProduct = new Product({
-//         name: product.name,
-//         type: product.type,
-//         image: product.image,
-//         options: product.options,
-//         min: product.min,
-//         max: product.max,
-//     });
+Products.forEach(product => {
+    const newProduct = new Product({
+        name: product.name,
+        type: product.type,
+        category: product.category,
+        image: product.image,
+        options: product.options,
+        min: product.min,
+        max: product.max,
+    });
 
-//     newProduct.save();
-// })
+    newProduct.save();
+})
 
 app.post('/product', async (req, res) => {
     const product = await Product.findById(req.body.id);

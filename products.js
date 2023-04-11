@@ -351,6 +351,23 @@ const products = [{
         name: 'Waist',
         price: 300
     }]
+}, {
+    name: "Senegalese Twist",
+    type: "women",
+    image: "assets/image22.jpg",
+    category: 'Twist',
+    min: 220,
+    max: 260,
+    options: [{
+        name: 'Mid back',
+        price: 220,
+    }, {
+        name: 'Lower back',
+        price: 240,
+    }, {
+        name: 'Waist',
+        price: 260
+    }]
 }]
 
 module.exports = products;
