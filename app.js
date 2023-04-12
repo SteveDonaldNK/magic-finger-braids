@@ -46,30 +46,78 @@ const productSchema = new mongoose.Schema({
     max: Number,
 }, { timestamps: true});
 
+productSchema.index({name: "text"}, {default_language: "none"});
+
 const Product = mongoose.model('product', productSchema);
 
-Products.forEach(product => {
-    const newProduct = new Product({
-        name: product.name,
-        type: product.type,
-        category: product.category,
-        image: product.image,
-        options: product.options,
-        min: product.min,
-        max: product.max,
-    });
+// Products.forEach(product => {
+//     const newProduct = new Product({
+//         name: product.name,
+//         type: product.type,
+//         category: product.category,
+//         image: product.image,
+//         options: product.options,
+//         min: product.min,
+//         max: product.max,
+//     });
 
-    newProduct.save();
-})
+//     newProduct.save();
+// })
 
 app.post('/product', async (req, res) => {
     const product = await Product.findById(req.body.id);
     res.send(product);
 });
 
-app.post('/sort-products', async (req, res) => {
+app.get('/search', async (req, res) => {
+    const sortby = req.query.sortby;
+    const filterby = req.query.filterby;
+    const update = req.query.update;
+    const query = req.query.query;
     let products = [];
-    
+
+    switch (sortby) {
+        case 'latest':
+            products = await Product.find({$text: { $search: query}}).sort({updatedAt: 1});
+            break;
+
+        case 'low':
+            products = await Product.find({$text: { $search: query}}).sort({min: 1} );
+            break;
+
+        case 'high':
+            products = await Product.find({$text: { $search: query}}).sort({min: -1} );
+            break;
+
+        default:
+            products = await Product.find({$text: { $search: query}});
+            break;
+    }
+    switch (filterby) {
+        case 'women':
+            products = products.filter(product => product.type === 'women')
+            break;
+
+        case 'men':
+            products = products.filter(product => product.type === 'men')
+            break;
+
+        case 'kids':
+            products = products.filter(product => product.type === 'kids')
+            break;
+
+        default:
+            products = products;
+            break;
+    }
+
+    if (update !== undefined) {
+        const template = fs.readFileSync(__dirname + '/views/partials/Products/Products.ejs', 'utf8');
+        const html = ejs.render(template, {products});
+        res.send(html);
+    } else {
+        res.render("shop", {products});
+    }
 });
 
 app.get('/', (req, res) => {

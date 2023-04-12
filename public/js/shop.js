@@ -9,8 +9,10 @@ const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 const error = document.querySelector("#option-error");
 const updaters = document.querySelectorAll(".form-select");
 const updateForm = document.querySelector('#update-form');
-const filterSelect = document.querySelector('#filter')
-const sortSelect = document.querySelector('#sort')
+const filterSelect = document.querySelector('#filter');
+const sortSelect = document.querySelector('#sort');
+const productData = document.querySelector('.product-data');
+const loader = document.querySelector('.spinner-container');
 
 checkParams();
 
@@ -74,6 +76,13 @@ toggleBtns.forEach( toggleBtn => toggleBtn.addEventListener("click", function ()
     offcanvas.classList.remove("reveal");
     overlay.classList.remove("reveal");
     document.body.style.overflow = "auto";
+  });
+
+  offcanvas.addEventListener('transitionend', () => {
+    if (!offcanvas.classList.contains('reveal')) {
+        productData.classList.add("d-none");
+        loader.classList.remove("d-none");
+    }
   });
   
   overlay.addEventListener("click", function () {
@@ -195,6 +204,8 @@ function showItem(id) {
     })
     .then(response => response.json())
     .then(data => {
+        loader.classList.add('d-none');
+        productData.classList.remove('d-none');
         itemTitle.innerHTML = data.name;
         itemImage.setAttribute("src", data.image);
         if (data.max === null) {

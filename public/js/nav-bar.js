@@ -13,21 +13,32 @@ const fav = JSON.parse(localStorage.getItem('favorites')) || [];
     badge.innerHTML = fav.length;
 });
 
-function updateQuantity(productId, productOption, operation) {
+function updateQuantity(productId, productOption, operation, userQty) {
     // Get the existing product from local storage
     let items = JSON.parse(localStorage.getItem('cartItems'));
   let itemToUpdate = items.find(item => item.id === productId && item.option === productOption);
 
-  if (itemToUpdate && itemToUpdate.quantity <= 99 ) {
-    if (operation === 'increase') {
-      itemToUpdate.quantity += 1;
-    } else if (operation === 'reduce') {
-      itemToUpdate.quantity -= 1;
+    if (userQty) {
+        console.log(userQty);
+        if(userQty > 99) {
+            itemToUpdate.quantity = 99;
+        } else {
+            itemToUpdate.quantity = Number(userQty)
+        }
+    } else {
+        if (itemToUpdate && itemToUpdate.quantity <= 99 ) {
+
+            if (operation === 'increase') {
+            itemToUpdate.quantity += 1;
+            } else if (operation === 'reduce') {
+            itemToUpdate.quantity -= 1;
+            }
+        }
     }
 
     // If the quantity is zero or less, remove the item from the cart
     if (itemToUpdate.quantity <= 0) {
-      items = items.filter(item => !(item.id === productId && item.option === productOption));
+        items = items.filter(item => !(item.id === productId && item.option === productOption));
     }
 
     if (items.length === 0) {
@@ -40,7 +51,7 @@ function updateQuantity(productId, productOption, operation) {
     }
 
     localStorage.setItem('cartItems', JSON.stringify(items));
-  }
+
   getCart();
   window.location.pathname === '/checkout'&&listItems();
 }
@@ -129,9 +140,9 @@ function getCart() {
                 <p class="mb-0">${item.name} (${item.option})</p>
                 <div class="d-flex w-100 justify-content-between unit-data">
                 <div class="d-flex align-items-end">
-                    <button onclick="updateQuantity(\'${item.id}\',\'${item.option}\',\'reduce\')" class="btn me-2">-</button>
-                    <input min="0" max="99" type="number" value="${item.quantity}">
-                    <button onclick="updateQuantity(\'${item.id}\',\'${item.option}\',\'increase\')" class="btn ms-2">+</button>
+                    <button onclick="updateQuantity(\'${item.id}\',\'${item.option}\',\'reduce\', ${null})" class="btn me-2">-</button>
+                    <input min="0" max="99" type="number" onchange="updateQuantity(\'${item.id}\',\'${item.option}\', ${null}, event.target.value)" value="${item.quantity}">
+                    <button onclick="updateQuantity(\'${item.id}\',\'${item.option}\',\'increase\', ${null})" class="btn ms-2">+</button>
                 </div>
                 <div class="d-flex align-items-end">
                     <p class="mb-0 price">$${item.quantity * item.price}</p>
