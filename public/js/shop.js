@@ -17,8 +17,12 @@ const loader = document.querySelector('.spinner-container');
 checkParams();
 
 function checkParams() {
+    const path = window.location.pathname;
     const params = window.location.search;
     const searchParams = new URLSearchParams(params);
+    if (path !== '/shop') {
+        updateForm.classList.add('d-none');
+    }
     if (params !== '') {
         sortSelect.value = searchParams.get('sortby');
         filterSelect.value = searchParams.get('filterby');

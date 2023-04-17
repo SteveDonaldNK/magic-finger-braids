@@ -61,10 +61,16 @@ const products = [{
     image: "assets/image17.jpg",
     category: 'Knotless',
     min: 200,
-    max: null,
+    max: 220,
     options: [{
-        name: 'Normal',
+        name: 'Mid back',
         price: 200
+    }, {
+        name: 'Lower back',
+        price: 210
+    }, {
+        name: 'Waist',
+        price: 220
     }]
 }, {
     name: "Large Box Braids",

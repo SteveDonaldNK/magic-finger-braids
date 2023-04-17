@@ -76,47 +76,51 @@ app.get('/search', async (req, res) => {
     const query = req.query.query;
     let products = [];
 
-    switch (sortby) {
-        case 'latest':
-            products = await Product.find({$text: { $search: query}}).sort({updatedAt: 1});
-            break;
-
-        case 'low':
-            products = await Product.find({$text: { $search: query}}).sort({min: 1} );
-            break;
-
-        case 'high':
-            products = await Product.find({$text: { $search: query}}).sort({min: -1} );
-            break;
-
-        default:
-            products = await Product.find({$text: { $search: query}});
-            break;
-    }
-    switch (filterby) {
-        case 'women':
-            products = products.filter(product => product.type === 'women')
-            break;
-
-        case 'men':
-            products = products.filter(product => product.type === 'men')
-            break;
-
-        case 'kids':
-            products = products.filter(product => product.type === 'kids')
-            break;
-
-        default:
-            products = products;
-            break;
-    }
-
-    if (update !== undefined) {
-        const template = fs.readFileSync(__dirname + '/views/partials/Products/Products.ejs', 'utf8');
-        const html = ejs.render(template, {products});
-        res.send(html);
+    if (query === null || query === undefined) {
+        res.redirect('/shop');
     } else {
-        res.render("shop", {products});
+        switch (sortby) {
+            case 'latest':
+                products = await Product.find({$text: { $search: query}}).sort({updatedAt: 1});
+                break;
+    
+            case 'low':
+                products = await Product.find({$text: { $search: query}}).sort({min: 1} );
+                break;
+    
+            case 'high':
+                products = await Product.find({$text: { $search: query}}).sort({min: -1} );
+                break;
+    
+            default:
+                products = await Product.find({$text: { $search: query}});
+                break;
+        }
+        switch (filterby) {
+            case 'women':
+                products = products.filter(product => product.type === 'women')
+                break;
+    
+            case 'men':
+                products = products.filter(product => product.type === 'men')
+                break;
+    
+            case 'kids':
+                products = products.filter(product => product.type === 'kids')
+                break;
+    
+            default:
+                products = products;
+                break;
+        }
+    
+        if (update !== undefined) {
+            const template = fs.readFileSync(__dirname + '/views/partials/Products/Products.ejs', 'utf8');
+            const html = ejs.render(template, {products});
+            res.send(html);
+        } else {
+            res.render("shop", {products});
+        }
     }
 });
 
