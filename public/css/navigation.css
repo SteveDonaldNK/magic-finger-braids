@@ -13,6 +13,7 @@
 
 body {
   font-family: 'Manrope', sans-serif;
+  display: block !important;
 }
 
 .container-fluid {

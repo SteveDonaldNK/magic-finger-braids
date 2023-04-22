@@ -12,6 +12,10 @@ footer .logo {
     height: 7rem;
 }
 
+footer ul {
+  padding: 0 40px;
+}
+
 footer ul li {
     list-style: none;
     margin: 5px;
@@ -124,7 +128,7 @@ footer .copyright {
 
 }
 
-@media (max-width: 310px) {
+@media (max-width: 416px) {
   footer .left-row .col {
     text-align: center;
   }

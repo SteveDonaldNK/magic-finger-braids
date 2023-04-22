@@ -1,3 +1,14 @@
+// require('dotenv').config();
+
+var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+  var yyyy = today.getFullYear();
+  today = yyyy + '-' + mm + '-' + dd;
+
+  // Set the minimum date of the input element to today's date
+  document.getElementById("validationCustom07").setAttribute("min", today);
+
 function checkout() {
     CinetPay.setConfig({
         apikey: '',//   YOUR APIKEY
@@ -42,7 +53,7 @@ function checkout() {
 function listItems() {
     const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
     const total = document.querySelector(".checkout-total");
-    const items = document.querySelector('.checkout-items');
+    const items = document.querySelector('.checkout-items-container');
     items.innerHTML = ''
     total.innerHTML = ''
     cartItems.forEach((item) => {

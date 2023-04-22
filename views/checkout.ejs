@@ -2,14 +2,15 @@
 <link rel="stylesheet" href="/css/navigation.css">
 <link rel="stylesheet" href="/css/footer.css">
 <link rel="stylesheet" href="/css/checkout.css">
-<title>Products</title>
+<title>Checkout</title>
 </head>
 <body>
 
 <%- include("./partials/NavigationBar/navigation-bar") %>
 <section id="checkout-section">
-    <div class="row">
-        <div class="col-12 col-lg-8 cl-md-6">
+  <div class="row gx-5">
+    <h2 class="p-0 mb-5">Billing Details</h2>
+        <div class="col-12 col-lg-7 left-container">
             <form class="row g-3 needs-validation" novalidate>
                 <div class="col-md-6">
                   <label for="validationCustom01" class="form-label">First name</label>
@@ -61,8 +62,8 @@
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <label for="validationCustom07" class="form-label">Zip</label>
-                  <input type="text" class="form-control dark" id="validationCustom07" required>
+                  <label for="validationCustom07" class="form-label">Appointment Date</label>
+                  <input type="date" class="form-control dark" id="validationCustom07" required>
                   <div class="invalid-feedback">
                     Please provide a valid zip.
                   </div>
@@ -72,7 +73,7 @@
                     <input class="form-check-input " type="checkbox" value="" id="invalidCheck" required>
                     <label class="form-check-label" for="invalidCheck">
                       <strong>
-                        Agree to terms and conditions
+                        Agree to <a class="text-decoration-none" href="/info">terms and conditions</a>
                       </strong>
                     </label>
                     <div class="invalid-feedback">
@@ -82,19 +83,20 @@
                 </div>
               </form>
         </div>
-        <div class="col-12 col-lg-4 col-md-6 position-relative right-container">
-          <div class="checkout-items-container w-100">
-            <div class="checkout-items pt-3">
-
+        
+        <div class="col-lg-5 col-12 p-2">
+          <h4 class="py-2 d-none order-title">Your Order</h4>
+          <div class="w-100 right-container p-2">
+            <div class="checkout-items-container w-100 pe-1">
+            
+            </div>
+            <div class="col-12 col-lg-4 col-md-6 d-flex flex-column info-container pt-2">
+              <strong>
+                <p class="fs-5">Total: $<span class="checkout-total"></span></p>
+              </strong>
+              <button class="btn btn-dark rounded-0 py-2" type="submit" onclick="checkout()">Proceed to checkout</button>
             </div>
           </div>
-        </div>
-        <div class="col-12 col-lg-8 col-md-6"></div>
-        <div class="col-12 col-lg-4 col-md-6 d-flex flex-column info-container pt-4 pb-3">
-          <strong>
-            <p class="fs-5">Total: $<span class="checkout-total"></span></p>
-          </strong>
-          <button class="btn btn-dark rounded-0 py-2" type="submit" onclick="checkout()">Proceed to checkout</button>
         </div>
     </div>
 </section>
