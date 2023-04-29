@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const Stripe = require('stripe');
 const ejs = require('ejs');
 const mongoose = require('mongoose');
 const session = require('express-session');
@@ -11,6 +12,7 @@ const Products = require('./products');
 const testimonials = require('./testimonials');
 
 const app = express();
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY)
 
 const port = process.env.PORT || 3000
 
@@ -67,6 +69,63 @@ const Product = mongoose.model('product', productSchema);
 app.post('/product', async (req, res) => {
     const product = await Product.findById(req.body.id);
     res.send(product);
+});
+
+app.post('/test', (req, res) => {
+    res.send("hello")
+});
+
+app.post('/create-checkout-session', async (req, res) => {
+
+    const promises = req.body.items.map(async item => {
+        const storedItem = await Product.findById(item.id);
+        const optionPrice = await storedItem.options.find(option => option.name === item.option);
+        
+        return {
+            price_data: {
+                currency: 'usd',
+                product_data: {
+                    name: `${storedItem.name} - ${optionPrice.name} (Final payment after hair is done)`,
+                },
+                unit_amount: 0
+            },
+            quantity: item.quantity
+        }
+    });
+
+    const appointment = {
+        price_data: {
+            currency: 'usd',
+            product_data: {
+                name: '*** Appointment ***',
+            },
+            unit_amount: 50 * 100
+        },
+        quantity: 1
+    }
+
+    const resolvedPromises = await Promise.all(promises)
+    .then(results => {
+        results.push(appointment)
+        return results;
+    })
+    .catch(error => {
+        console.log(error); 
+    });
+
+
+    try {
+        const session = await stripe.checkout.sessions.create({
+            payment_method_types: ['card'],
+            line_items: resolvedPromises,
+            mode: 'payment',
+            success_url: `${process.env.DEV_DOMAIN}/success`,
+            cancel_url: `${process.env.DEV_DOMAIN}/failure`,
+        })
+        res.json({url: session.url})
+    } catch (error) {
+        res.status(500).json({error: error})
+    }
 });
 
 app.get('/search', async (req, res) => {
@@ -191,6 +250,10 @@ app.get('/contact', (req, res) => res.render("contact"));
 app.get('/info', (req, res) => res.render("terms"));
 
 app.get('/checkout', (req, res) => res.render("checkout"));
+
+app.get('/success', (req, res) => res.render("success"));
+
+app.get('/failure', (req, res) => res.render("failure"))
 
 app.all('*', (req, res) => {
     res.render("notFound");

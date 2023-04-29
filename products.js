@@ -52,7 +52,7 @@ const products = [{
     min: 250,
     max: null,
     options: [{
-        name: 'Normal',
+        name: 'Regular',
         price: 250
     }]
 }, {
@@ -137,7 +137,7 @@ const products = [{
     min: 100,
     max: null,
     options: [{
-        name: 'Normal',
+        name: 'Regular',
         price: 100
     }]
 }, {
@@ -171,7 +171,7 @@ const products = [{
     min: 100,
     max: null,
     options: [{
-        name: 'Normal',
+        name: 'Regular',
         price: 100
     }]
 }, {
@@ -182,7 +182,7 @@ const products = [{
     min: 160,
     max: null,
     options: [{
-        name: 'Normal',
+        name: 'Regular',
         price: 160
     }]
 }, {
@@ -193,7 +193,7 @@ const products = [{
     min: 120,
     max: null,
     options: [{
-        name: 'Normal',
+        name: 'Regular',
         price: 120
     }]
 }, {
@@ -286,7 +286,7 @@ const products = [{
     min: 200,
     max: null,
     options: [{
-        name: 'Normal',
+        name: 'Regular',
         price: 200
     }]
 }, {

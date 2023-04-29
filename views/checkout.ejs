@@ -9,7 +9,7 @@
 <%- include("./partials/NavigationBar/navigation-bar") %>
 <section id="checkout-section">
   <div class="row gx-5">
-    <h2 class="p-0 mb-5">Billing Details</h2>
+    <h2 class="mb-5">Billing Details</h2>
         <div class="col-12 col-lg-7 left-container">
             <form class="row g-3 needs-validation" novalidate>
                 <div class="col-md-6">
@@ -94,7 +94,7 @@
               <strong>
                 <p class="fs-5">Total: $<span class="checkout-total"></span></p>
               </strong>
-              <button class="btn btn-dark rounded-0 py-2" type="submit" onclick="checkout()">Proceed to checkout</button>
+              <button class="btn btn-dark rounded-0 py-2" type="submit" onclick="processCheckout(event)">Proceed to checkout</button>
             </div>
           </div>
         </div>

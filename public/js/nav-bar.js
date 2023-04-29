@@ -19,7 +19,6 @@ function updateQuantity(productId, productOption, operation, userQty) {
   let itemToUpdate = items.find(item => item.id === productId && item.option === productOption);
 
     if (userQty) {
-        console.log(userQty);
         if(userQty > 99) {
             itemToUpdate.quantity = 99;
         } else {
