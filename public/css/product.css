@@ -39,7 +39,7 @@
 @media (max-width: 576px) {
     .product-body .quickview-img {
         height: 25rem;
-        width: 80%;
+        width: 100%;
     }
 
     .product-body #options {
