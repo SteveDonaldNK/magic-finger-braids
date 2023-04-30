@@ -2,6 +2,16 @@ const currentUrl = window.location.href;
 const error = document.querySelector("#option-error");
 const buttons = document.querySelectorAll(".option-btn");
 const addBtn = document.querySelector('.add-to-cart');
+
+addBtn.addEventListener('click', () => {
+    if (addBtn.value === '') {
+        error.classList.remove('d-none');
+        error.innerHTML = "Please choose a size";
+    } else {
+        addToCart(addBtn.id, addBtn.value)
+    }
+});
+
 buttons.forEach(button => {
     button.addEventListener('click', () => {
         buttons.forEach(otherButton => {

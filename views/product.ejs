@@ -36,7 +36,7 @@
                         <p class="text-secondary m-0">Price: <span style="width: 2.5rem; display: inline-block;" id="price"></span></p>
                     </div>
                     <div>
-                        <button onclick="addToCart('<%= product._id %>', event.target.value)" type="button" id="id" value="" class="btn add-to-cart ms-auto px-4 py-2 bg-dark rounded-0 text-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="option 1">
+                        <button type="button" id="<%= product._id %>" value="" class="btn add-to-cart ms-auto px-4 py-2 bg-dark rounded-0 text-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="option 1">
                             Book
                         </button>
                         <button onclick="addfav('<%= product._id %>', event)" type="button" id="id" value="" class="ms-2 btn favorite px-4 py-2 bg-secondary rounded-0 text-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="option 1">
