@@ -1,42 +1,62 @@
-// require('dotenv').config();
-
-var today = new Date();
-  var dd = String(today.getDate()).padStart(2, '0');
-  var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
-  var yyyy = today.getFullYear();
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const form = document.querySelector('.needs-validation');
+  let today = new Date();
+  const dd = String(today.getDate()).padStart(2, '0');
+  const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+  const yyyy = today.getFullYear();
   today = yyyy + '-' + mm + '-' + dd;
 
   // Set the minimum date of the input element to today's date
   document.getElementById("validationCustom07").setAttribute("min", today);
 
+  (() => {
+    'use strict'
+    // Loop over them and prevent submission
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      if (!form.checkValidity()) {
+        event.stopPropagation();
+      }
+      
+      form.classList.add('was-validated');
+    }, false)
+  })()
+
 function processCheckout(e) {
-    e.preventDefault();
     const items = JSON.parse(localStorage.getItem('cartItems'));
     const data = [];
+    const spinner = `<div class="spinner-border spinner-border-sm text-light" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>`
 
-    items.forEach(item => {
-      const itemData = {
-        id: item.id,
-        option: item.option,
-        quantity: item.quantity
-      };
-      data.push(itemData);
-    });
+    if (form.checkValidity()) {
+      e.target.classList.add('disabled')
+      e.target.innerHTML = spinner;
 
-    fetch('/create-checkout-session', {
-      method: 'POST',
-      headers: {
-        'Content-Type':'application/json'
-      },
-      body: JSON.stringify({items: data})
-    }).then(res => {
-      if (res.ok) return res.json();
-      return res.json().then(json => Promise.reject(json))
-    }).then(({ url }) => {
-      window.location = url
-    }).catch(e => {
-      console.log(e);
-    })
+      items.forEach(item => {
+        const itemData = {
+          id: item.id,
+          option: item.option,
+          quantity: item.quantity
+        };
+        data.push(itemData);
+      });
+
+      fetch('/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type':'application/json'
+        },
+        body: JSON.stringify({items: data})
+      }).then(res => {
+        if (res.ok) return res.json();
+        return res.json().then(json => Promise.reject(json))
+      }).then(({ url }) => {
+        window.location = url
+      }).catch(e => {
+        console.log(e);
+      })
+    }
 }
 
 function listItems() {

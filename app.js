@@ -106,7 +106,7 @@ app.post('/create-checkout-session', async (req, res) => {
 
     const resolvedPromises = await Promise.all(promises)
     .then(results => {
-        results.push(appointment)
+        results.unshift(appointment)
         return results;
     })
     .catch(error => {
@@ -253,7 +253,7 @@ app.get('/checkout', (req, res) => res.render("checkout"));
 
 app.get('/success', (req, res) => res.render("success"));
 
-app.get('/failure', (req, res) => res.render("failure"))
+app.get('/failure', (req, res) => res.render("failure"));
 
 app.all('*', (req, res) => {
     res.render("notFound");
