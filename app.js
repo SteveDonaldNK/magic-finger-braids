@@ -151,7 +151,7 @@ app.get('/search', async (req, res) => {
                 break;
     
             case 'kids':
-                products = products.filter(product => product.type === 'kids')
+                products = products.filter(product => product.type === 'Kids');
                 break;
     
             default:
@@ -210,7 +210,7 @@ app.get('/shop', async (req, res) => {
             break;
 
         case 'kids':
-            products = products.filter(product => product.type === 'kids')
+            products = products.filter(product => product.type === 'Kids')
             break;
 
         default:
