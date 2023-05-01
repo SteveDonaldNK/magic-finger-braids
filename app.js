@@ -9,9 +9,8 @@ const Products = require('./products');
 const testimonials = require('./testimonials');
 
 const app = express();
-const stripe = Stripe(process.env.STRIPE_SECRET_KEY)
-
 const port = process.env.PORT || 3000
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY)
 
 mongoose.connect(`mongodb+srv://${process.env.USER_NAME}:${process.env.USER_PASSWORD}@cluster0.soor9qp.mongodb.net/magicDB`, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
@@ -25,15 +24,6 @@ app.use(express.urlencoded({
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
-// app.use(session({
-//     secret: "magic-finger-braids-secret-access-key-by-donald-237-03-03-2023",
-//     resave: false,
-//     saveUninitialized: false
-// }));
-
-// app.use(passport.initialize());
-// app.use(passport.session());
 
 const productSchema = new mongoose.Schema({
     name: String,

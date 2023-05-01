@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="/css/navigation.css">
 <link rel="stylesheet" href="/css/footer.css">
 <link rel="stylesheet" href="/css/product.css">
-<title>Products</title>
+<title><%= product.name %></title>
 </head>
 <body>
 
@@ -46,13 +46,13 @@
                     </div>
                 <div class="mt-5 d-flex gap-4 flex-wrap share-container">
                     <span>Share: </span>
-                    <a href="Share with facebook" onclick="shareOnFacebook()">
+                    <a onclick="shareOnFacebook()">
                         <img src="/assets/facebook.png" alt="Facebook">
                     </a>
-                    <a href="share with instagram" onclick="shareOnInstagram()">
+                    <a onclick="shareOnInstagram()">
                         <img src="/assets/instagram.png" alt="Instagram">
                     </a>
-                    <a href="share with tiktok" onclick="shareOnTikTok()">
+                    <a onclick="shareOnTikTok()">
                         <img src="/assets/tiktok.png" alt="TikTok">
                     </a>
                       
