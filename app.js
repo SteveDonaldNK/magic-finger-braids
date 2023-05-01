@@ -76,7 +76,6 @@ app.post('/test', (req, res) => {
 });
 
 app.post('/create-checkout-session', async (req, res) => {
-
     const promises = req.body.items.map(async item => {
         const storedItem = await Product.findById(item.id);
         const optionPrice = await storedItem.options.find(option => option.name === item.option);
@@ -97,7 +96,7 @@ app.post('/create-checkout-session', async (req, res) => {
         price_data: {
             currency: 'usd',
             product_data: {
-                name: '*** Appointment ***',
+                name: `*** Appointment - ${req.body.bookingDate} ***`,
             },
             unit_amount: 50 * 100
         },
@@ -182,6 +181,10 @@ app.get('/search', async (req, res) => {
         }
     }
 });
+
+app.get('/cart', (req, res) => {
+    res.render("shop", {products})
+})
 
 app.get('/', (req, res) => {
     res.render("home", {featuredProducts: Products, testimonials})

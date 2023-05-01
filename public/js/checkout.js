@@ -1,17 +1,27 @@
   // Fetch all the forms we want to apply custom Bootstrap validation styles to
   const form = document.querySelector('.needs-validation');
-  let today = new Date();
-  const dd = String(today.getDate()).padStart(2, '0');
-  const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
-  const yyyy = today.getFullYear();
-  today = yyyy + '-' + mm + '-' + dd;
+  // Create a new Date object for the current time
+  const now = new Date();
+
+  // Check if the current time is after 6 pm
+  if (now.getHours() >= 18) {
+    // If it's after 6 pm, add one day to the current date
+    now.setDate(now.getDate() + 1);
+  }
+
+  // Format the date as yyyy-mm-dd
+  const dd = String(now.getDate()).padStart(2, '0');
+  const mm = String(now.getMonth() + 1).padStart(2, '0');
+  const yyyy = now.getFullYear();
+  const today = yyyy + '-' + mm + '-' + dd;
 
   // Set the minimum date of the input element to today's date
   document.getElementById("validationCustom07").setAttribute("min", today);
 
+
   (() => {
     'use strict'
-    // Loop over them and prevent submission
+  // Loop over them and prevent submission
     form.addEventListener('submit', event => {
       event.preventDefault();
       if (!form.checkValidity()) {
@@ -23,6 +33,8 @@
   })()
 
 function processCheckout(e) {
+    const date = document.querySelector('#validationCustom07');
+    const bookingDate = formatDate(date.value);
     const items = JSON.parse(localStorage.getItem('cartItems'));
     const data = [];
     const spinner = `<div class="spinner-border spinner-border-sm text-light" role="status">
@@ -47,7 +59,7 @@ function processCheckout(e) {
         headers: {
           'Content-Type':'application/json'
         },
-        body: JSON.stringify({items: data})
+        body: JSON.stringify({items: data, bookingDate })
       }).then(res => {
         if (res.ok) return res.json();
         return res.json().then(json => Promise.reject(json))
@@ -90,23 +102,10 @@ function listItems() {
     );
 }
 
-(() => {
-    'use strict'
-  
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    const forms = document.querySelectorAll('.needs-validation')
-  
-    // Loop over them and prevent submission
-    forms.forEach(form => {
-      form.addEventListener('submit', event => {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
-        }
-  
-        form.classList.add('was-validated')
-      }, false)
-    })
-  })()
+function formatDate(date) {
+  const newDate = new Date(date);
+  const options = {year: 'numeric', month: '2-digit', day: '2-digit'};
+  return newDate.toLocaleDateString('en-US', options);  
+}
 
   listItems()
