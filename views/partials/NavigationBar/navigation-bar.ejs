@@ -17,7 +17,7 @@
         
         <div class="offcanvas offcanvas-start side-bar" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header ps-5 pt-4 pb-0">
-                <a class="position-relative" href="#">
+                <a class="position-relative" href="/wishlist">
                     <img src="/assets/favorite.svg" alt="">
                     <span class="position-absolute top-0 start-100 translate-middle badge fav rounded-pill">
                     </span>
@@ -71,9 +71,11 @@
                     <img src="/assets/lens.svg" alt="lens" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
                 </li>
                 <li class="nav-item position-relative">
-                    <img src="/assets/favorite.svg" alt="favorite">
-                    <span class="position-absolute top-0 start-100 translate-middle badge fav rounded-pill">
-                    </span>
+                    <a href="/wishlist">
+                        <img src="/assets/favorite.svg" alt="favorite">
+                        <span class="position-absolute top-0 start-100 translate-middle badge fav rounded-pill">
+                        </span>
+                    </a>
                 </li>
                 <li class="nav-item position-relative">
                     <img onclick="getCart()" src="/assets/cart.svg" alt="cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
@@ -118,7 +120,7 @@
     </div>
     <div class="offcanvas-body offcanvas-body-total justify-content-center d-flex flex-column hide">
         <p class="text-secondary">Subtotal: <span id="amount">0</span></p>
-        <a class="mb-2" href="/cart"><button class="btn btn-outline-dark w-100 rounded-0">View Cart</button></a>
+        <button onclick="emptyUserCart()" class="mb-2 btn btn-outline-danger w-100 rounded-0">Empty cart</button>
         <a href="/checkout"><button class="btn btn-dark w-100 rounded-0">checkout</button></a>
     </div>
 </div>

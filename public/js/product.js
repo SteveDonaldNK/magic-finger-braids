@@ -1,4 +1,5 @@
 const currentUrl = window.location.href;
+const title = window.document.title;
 const error = document.querySelector("#option-error");
 const buttons = document.querySelectorAll(".option-btn");
 const addBtn = document.querySelector('.add-to-cart');
@@ -95,13 +96,23 @@ function addToCart(id, option) {
 }
 
 function shareOnFacebook() {
-    window.open(`https://www.facebook.com/sharer.php?u=${currentUrl}`, '_blank');
+    if (navigator.share) {
+        navigator.share({
+            title,
+            url: currentUrl,
+        }).then(() => console.log('Thanks for sharing'))
+        .catch(console.error);
+    } else {
+        window.open(`https://www.facebook.com/sharer.php?u=${currentUrl}`, '_blank');
+    }
 }
 
 function shareOnInstagram() {
-    window.open(`https://www.sharethis.com/share?url=${currentUrl}&title=<title>&image=<image>&hashtags=<hashtags>`, '_blank');
-}
-
-function shareOnTikTok() {
-    window.open(`https://www.tiktok.com/share?url=${currentUrl}`, '_blank');
+    if (navigator.share) {
+        navigator.share({
+            title,
+            url: currentUrl,
+        }).then(() => console.log('Thanks for sharing'))
+        .catch(console.error);
+    }
 }

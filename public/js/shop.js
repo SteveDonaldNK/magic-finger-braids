@@ -8,13 +8,18 @@ const favIcons = document.querySelectorAll(".fav-icon");
 const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 const error = document.querySelector("#option-error");
 const updaters = document.querySelectorAll(".form-select");
-const updateForm = document.querySelector('#update-form');
 const filterSelect = document.querySelector('#filter');
 const sortSelect = document.querySelector('#sort');
 const productData = document.querySelector('.product-data');
 const loader = document.querySelector('.spinner-container');
+var updateForm;
 
-checkParams();
+if (window.location.pathname === "shop") {
+    updateForm = document.querySelector('#update-form');
+    checkParams();
+}
+
+checkFavorites(favIcons)
 
 function checkParams() {
     const path = window.location.pathname;
@@ -55,11 +60,13 @@ updaters.forEach(updater => {
     });
 });
 
-favIcons.forEach(icon => {
-    if (favorites.includes(icon.id)) {
-        icon.setAttribute("src", "assets/liked.svg");
-    } 
-})
+function checkFavorites(favIcons) {
+    favIcons.forEach(icon => {
+        if (favorites.includes(icon.id)) {
+            icon.setAttribute("src", "assets/liked.svg");
+        } 
+    })
+}
 
 addBtn.addEventListener('click', () => {
     if (addBtn.value === '') {
@@ -79,7 +86,8 @@ toggleBtns.forEach( toggleBtn => toggleBtn.addEventListener("click", function ()
   closeBtn.addEventListener("click", function () {
     offcanvas.classList.remove("reveal");
     overlay.classList.remove("reveal");
-    document.body.style.overflow = "auto";
+        error.classList.add('d-none');
+        document.body.style.overflow = "auto";
   });
 
   offcanvas.addEventListener('transitionend', () => {
@@ -92,6 +100,7 @@ toggleBtns.forEach( toggleBtn => toggleBtn.addEventListener("click", function ()
   overlay.addEventListener("click", function () {
     offcanvas.classList.remove("reveal");
     overlay.classList.remove("reveal");
+    error.classList.add('d-none');
     document.body.style.overflow = "auto";
   });
 

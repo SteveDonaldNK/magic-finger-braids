@@ -156,3 +156,13 @@ function getCart() {
       }
     );
 }
+
+function emptyUserCart() {
+    const emptyCart = document.querySelector(".offcanvasRight-body");
+    const items = document.querySelector('.item-list');
+    const btns = document.querySelector(".offcanvas-body-total");
+    localStorage.removeItem('cartItems');
+    items.innerHTML = '';
+    btns.classList.add('hide')
+    emptyCart.classList.remove('hide');
+}

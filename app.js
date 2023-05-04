@@ -58,8 +58,13 @@ app.post('/product', async (req, res) => {
     res.send(product);
 });
 
-app.post('/test', (req, res) => {
-    res.send("hello")
+app.post('/get-products', async (req, res) => {
+    const storedItems = req.body.storedItems;
+    const products = await Product.find({_id: { $in: storedItems}});
+
+    const template = fs.readFileSync(__dirname + '/views/partials/Products/Products.ejs', 'utf8');
+    const html = ejs.render(template, {products});
+    res.send(html);
 });
 
 app.post('/create-checkout-session', async (req, res) => {
@@ -169,8 +174,8 @@ app.get('/search', async (req, res) => {
     }
 });
 
-app.get('/cart', (req, res) => {
-    res.render("shop", {products})
+app.get('/wishlist', (req, res) => {
+    res.render("wishlist", {products: Products, pageTitle: 'Wishlist', pageLink: 'wishlist'})
 })
 
 app.get('/', (req, res) => {
