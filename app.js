@@ -85,7 +85,7 @@ app.post('/create-checkout-session', async (req, res) => {
             product_data: {
                 name: `*** Appointment - ${req.body.bookingDate} ***`,
             },
-            unit_amount: 50 * 100
+            unit_amount: (51.8 * 100)
         },
         quantity: 1
     }
@@ -105,8 +105,8 @@ app.post('/create-checkout-session', async (req, res) => {
             payment_method_types: ['card'],
             line_items: resolvedPromises,
             mode: 'payment',
-            success_url: `${process.env.DEV_DOMAIN}/success`,
-            cancel_url: `${process.env.DEV_DOMAIN}/failure`,
+            success_url: `${process.env.DEV_DOMAIN}/checkout/success`,
+            cancel_url: `${process.env.DEV_DOMAIN}/checkoutfailure`,
         })
         res.json({url: session.url})
     } catch (error) {
@@ -241,9 +241,11 @@ app.get('/info', (req, res) => res.render("terms"));
 
 app.get('/checkout', (req, res) => res.render("checkout"));
 
-app.get('/success', (req, res) => res.render("success"));
+app.get('/checkout/success', (req, res) => {
+    res.render("success")
+});
 
-app.get('/failure', (req, res) => res.render("failure"));
+app.get('/checkout/failure', (req, res) => res.render("failure"));
 
 app.all('*', (req, res) => {
     res.render("notFound");

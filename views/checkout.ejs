@@ -2,6 +2,8 @@
 <link rel="stylesheet" href="/css/navigation.css">
 <link rel="stylesheet" href="/css/footer.css">
 <link rel="stylesheet" href="/css/checkout.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
 <title>Checkout</title>
 </head>
 <body>
@@ -54,7 +56,9 @@
                 </div>
                 <div class="col-md-6">
                   <label for="validationCustom06" class="form-label">Country</label>
-                  <input type="text" class="form-control dark" id="validationCustom06" required>
+                  <select class="form-select" id="validationCustom06" required>
+                    <option selected disabled value="">Select country</option>
+                  </select>
                   <div class="invalid-feedback">
                     Please select a valid Country.
                   </div>
@@ -66,7 +70,7 @@
                   <label for="validationCustom04" class="form-label">City</label>
                   <input type="text" class="form-control dark" id="validationCustom04" required>
                   <div class="invalid-feedback">
-                    Please select a valid City.
+                    Please provide a valid City.
                   </div>
                   <div class="valid-feedback">
                     Looks good!
@@ -116,7 +120,34 @@
             </div>
             <div class="col-12 col-lg-4 col-md-6 d-flex flex-column info-container pt-2">
               <strong>
-                <p class="fs-5">Total: $<span class="checkout-total"></span></p>
+
+                <p class="d-flex mb-0 align-items-center">
+                  Sub-total: 
+                  <span class="text-decoration-line-through mx-1 fs-6">
+                    $<span class="checkout-total "></span>
+                  </span>
+                  $<span class="checkout-real-total"></span>
+                  <button type="button" class="btn info-icon-button"
+                  data-bs-toggle="tooltip" data-bs-placement="top"
+                  data-bs-custom-class="custom-tooltip"
+                  data-bs-title="Amount to be paid after your hair has been done.">
+                    <img class="info-icon" src="/assets/information.png" alt="info">
+                  </button>
+                </p>
+
+                <p class="fs-5 mb-2 d-flex align-items-center">
+                  Total (Appointment only): 
+                  $<span>50</span>
+                  <button type="button" class="btn info-icon-button"
+                  data-bs-toggle="tooltip" data-bs-placement="top"
+                  data-bs-custom-class="custom-tooltip"
+                  data-bs-title="Amount to be paid now in order to book an appointment.">
+                    <img class="info-icon" src="/assets/information.png" alt="info">
+                  </button>
+                </p>
+
+                <p class="fw-semibold note">* Please note that transaction fees may apply when completing the payment.</p>
+
               </strong>
               <button class="btn btn-dark rounded-0 py-2" type="submit" onclick="processCheckout(event)">Proceed to checkout</button>
             </div>
@@ -124,5 +155,8 @@
         </div>
       </form>
 </section>
+
+<hr>
+
 <script src="/js/checkout.js"></script>
 <%- include("./partials/footer") %>

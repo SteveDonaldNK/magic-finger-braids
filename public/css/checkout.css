@@ -1,11 +1,18 @@
 #checkout-section {
-    padding: 8rem 5%;
+    padding: 8rem 5% 0;
 }
 
 /* Select the input with the primary class and change its box shadow */
-input.form-control:focus, input.form-check-input:focus {
+input.form-control:focus, input.form-check-input:focus, select.form-select:focus {
     box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
     border-color:  rgba(0, 0, 0, 0.25);
+}
+
+.form-select option {
+  width: 2rem !important;
+  background-color: #fff;
+  border: none;
+  border-bottom: 1px solid #eee;
 }
 
 input.form-check-input:checked {
@@ -74,6 +81,33 @@ input.form-check-input:checked {
 
   .info-container {
     width: 100%;
+  }
+
+  .custom-tooltip {
+    --bs-tooltip-bg: #e8e8e8;
+    --bs-tooltip-color: var(--secondary-color);
+  }
+
+  .tooltip-inner {
+    text-align: left !important;
+  }
+
+  .note {
+    font-size: 0.9rem;
+  }
+
+  hr {
+    margin: 5%;
+  }
+
+  .info-icon-button, .info-icon-button:active, .info-icon-button:focus {
+    border: none;
+  }
+
+  .info-icon {
+    height: 1.1rem;
+    filter: invert(56%) sepia(0%) saturate(0%) hue-rotate(177deg) brightness(83%) contrast(83%);
+    cursor: pointer;
   }
   
   #checkout-section .right-container .checkout-items-container::-webkit-scrollbar {

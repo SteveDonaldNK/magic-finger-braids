@@ -18,6 +18,8 @@
   // Set the minimum date of the input element to today's date
   document.getElementById("validationCustom07").setAttribute("min", today);
 
+  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+  const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
 
   (() => {
     'use strict'
@@ -64,8 +66,10 @@ function processCheckout(e) {
         if (res.ok) return res.json();
         return res.json().then(json => Promise.reject(json))
       }).then(({ url }) => {
+        e.target.innerHTML = "Proceed to checkout"
         window.location = url
       }).catch(e => {
+        // e.target.innerHTML = "Proceed to checkout"
         console.log(e);
       })
     }
@@ -74,6 +78,7 @@ function processCheckout(e) {
 function listItems() {
     const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
     const total = document.querySelector(".checkout-total");
+    const realTotal = document.querySelector(".checkout-real-total");
     const items = document.querySelector('.checkout-items-container');
     items.innerHTML = ''
     total.innerHTML = ''
@@ -98,6 +103,7 @@ function listItems() {
         `;
         items.innerHTML += itemHtml;
         total.innerHTML = Number(total.innerHTML) + (item.price * item.quantity);
+        realTotal.innerHTML = Number(total.innerHTML) - 50;
       }
     );
 }
@@ -108,4 +114,20 @@ function formatDate(date) {
   return newDate.toLocaleDateString('en-US', options);  
 }
 
-  listItems()
+function insertCountries() {
+  const countriesDropdown = document.getElementById('validationCustom06');
+
+  fetch('https://restcountries.com/v2/all')
+    .then(response => response.json())
+    .then(countries => {
+      countries.forEach(country => {
+        const option = document.createElement('option');
+        option.value = country.name;
+        option.text = country.name;
+        countriesDropdown.add(option);
+      });
+    });
+}
+
+  listItems();
+  insertCountries();
