@@ -14,7 +14,7 @@ const productData = document.querySelector('.product-data');
 const loader = document.querySelector('.spinner-container');
 var updateForm;
 
-if (window.location.pathname === "shop") {
+if (window.location.pathname === "/shop") {
     updateForm = document.querySelector('#update-form');
     checkParams();
 }
