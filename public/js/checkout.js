@@ -36,42 +36,50 @@
 
 function processCheckout(e) {
     const date = document.querySelector('#validationCustom07');
+    const msg = document.querySelector('.no-item');
     const bookingDate = formatDate(date.value);
     const items = JSON.parse(localStorage.getItem('cartItems'));
     const data = [];
     const spinner = `<div class="spinner-border spinner-border-sm text-light" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>`
-
+    
     if (form.checkValidity()) {
-      e.target.classList.add('disabled')
-      e.target.innerHTML = spinner;
+      if (items === null) {
+        msg.classList.replace("d-none", "d-block")
+        setTimeout(() => {
+          msg.classList.replace("d-block", "d-none")
+        }, 5000);
+      } else {
+        e.target.classList.add('disabled')
+        e.target.innerHTML = spinner;
 
-      items.forEach(item => {
-        const itemData = {
-          id: item.id,
-          option: item.option,
-          quantity: item.quantity
-        };
-        data.push(itemData);
-      });
+        items.forEach(item => {
+          const itemData = {
+            id: item.id,
+            option: item.option,
+            quantity: item.quantity
+          };
+          data.push(itemData);
+        });
 
-      fetch('/create-checkout-session', {
-        method: 'POST',
-        headers: {
-          'Content-Type':'application/json'
-        },
-        body: JSON.stringify({items: data, bookingDate })
-      }).then(res => {
-        if (res.ok) return res.json();
-        return res.json().then(json => Promise.reject(json))
-      }).then(({ url }) => {
-        e.target.innerHTML = "Proceed to checkout"
-        window.location = url
-      }).catch(e => {
-        // e.target.innerHTML = "Proceed to checkout"
-        console.log(e);
-      })
+        fetch('/create-checkout-session', {
+          method: 'POST',
+          headers: {
+            'Content-Type':'application/json'
+          },
+          body: JSON.stringify({items: data, bookingDate })
+        }).then(res => {
+          if (res.ok) return res.json();
+          return res.json().then(json => Promise.reject(json))
+        }).then(({ url }) => {
+          e.target.innerHTML = "Proceed to checkout"
+          window.location = url
+        }).catch(e => {
+          // e.target.innerHTML = "Proceed to checkout"
+          console.log(e);
+        })
+      }
     }
 }
 

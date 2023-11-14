@@ -110,8 +110,8 @@ app.post('/create-checkout-session', async (req, res) => {
             payment_method_types: ['card'],
             line_items: resolvedPromises,
             mode: 'payment',
-            success_url: `${process.env.DEV_DOMAIN}/checkout/success`,
-            cancel_url: `${process.env.DEV_DOMAIN}/checkoutfailure`,
+            success_url: `${process.env.DEV_DOMAIN}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `${process.env.DEV_DOMAIN}/checkout/failure?session_id={CHECKOUT_SESSION_ID}`,
         })
         res.json({url: session.url})
     } catch (error) {
@@ -247,10 +247,34 @@ app.get('/info', (req, res) => res.render("terms"));
 app.get('/checkout', (req, res) => res.render("checkout"));
 
 app.get('/checkout/success', (req, res) => {
-    res.render("success")
+    stripe.checkout.sessions.retrieve(req.query.session_id)
+    .then(resolved => {
+        if (resolved.payment_status === 'paid') {
+            res.render("success");
+        } else {
+            res.redirect("/shop");
+        }
+    })
+    .catch(err => {
+        console.log("wrong session id!");
+        res.redirect("/shop");
+    });
 });
 
-app.get('/checkout/failure', (req, res) => res.render("failure"));
+app.get('/checkout/failure', (req, res) => {
+    stripe.checkout.sessions.retrieve(req.query.session_id)
+    .then(resolved => {
+        if (resolved.payment_status === 'unpaid') {
+            res.render("failure");
+        } else {
+            res.redirect("/shop");
+        }
+    })
+    .catch(err => {
+        console.log("wrong session id!");
+        res.redirect("/shop");
+    });
+});
 
 app.all('*', (req, res) => {
     res.render("notFound");
