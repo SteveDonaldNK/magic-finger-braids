@@ -12,11 +12,29 @@ const filterSelect = document.querySelector('#filter');
 const sortSelect = document.querySelector('#sort');
 const productData = document.querySelector('.product-data');
 const loader = document.querySelector('.spinner-container');
+const loadMoreBtn = document.querySelector('.more-btn');
+const prodLayout = document.querySelector('.product-layout');
 var updateForm;
 
 if (window.location.pathname === "/shop") {
     updateForm = document.querySelector('#update-form');
     checkParams();
+}
+
+if (window.location.pathname === '/search') {
+    updateForm = document.querySelector('#update-form');
+    loadMoreBtn.classList.add('d-none');
+    updateForm.classList.add('d-none');
+    if(prodLayout.children.length === 0) {
+        prodLayout.innerHTML = `
+        <div class="row m-0 gy-4 ">
+            <div class="d-flex gap-3 flex-column justify-content-center align-items-center">
+                <img height="60" src="/assets/empty-cart.svg" alt="">
+                <p class="fs-3 fw-semibold">Nothing found !</p>
+            </div>
+        </div>
+        `
+    }
 }
 
 checkFavorites(favIcons)
@@ -25,9 +43,10 @@ function checkParams() {
     const path = window.location.pathname;
     const params = window.location.search;
     const searchParams = new URLSearchParams(params);
-    if (path !== '/shop') {
+    if (path !== '/shop' ) {
         updateForm.classList.add('d-none');
     }
+
     if (params !== '') {
         sortSelect.value = searchParams.get('sortby');
         filterSelect.value = searchParams.get('filterby');

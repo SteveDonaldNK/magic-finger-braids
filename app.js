@@ -54,16 +54,22 @@ const Product = mongoose.model('product', productSchema);
 // })
 
 app.post('/product', async (req, res) => {
-    const product = await Product.findById(req.body.id);
+    const product = await Product.findById(req.body.id).lean();
     res.send(product);
 });
 
 app.post('/get-products', async (req, res) => {
     const storedItems = req.body.storedItems;
-    const products = await Product.find({_id: { $in: storedItems}});
+    const products = await Product.find({_id: { $in: storedItems}}).lean();
+    let html = '';
 
-    const template = fs.readFileSync(__dirname + '/views/partials/Products/Products.ejs', 'utf8');
-    const html = ejs.render(template, {products});
+    if(products.length !== 0) {
+        const template = fs.readFileSync(__dirname + '/views/partials/Products/Products.ejs', 'utf8');
+        html = ejs.render(template, {products});
+    } else {
+        const template = fs.readFileSync(__dirname + '/views/partials/Empty/empty.ejs', 'utf8');
+        html = ejs.render(template);
+    }
     res.send(html);
 });
 
@@ -124,55 +130,43 @@ app.get('/search', async (req, res) => {
     const filterby = req.query.filterby;
     const update = req.query.update;
     const query = req.query.query;
-    let products = [];
 
-    if (query === null || query === undefined) {
-        res.redirect('/shop');
+    if (!query) {
+        return res.redirect('/shop');
+    }
+
+    const queryCondition = { $text: { $search: query } };
+    const sortCondition = getSortCondition(sortby);
+
+    let products = await Product.find(queryCondition).sort(sortCondition).lean();
+
+    // Apply additional filtering
+    if (filterby && products.length !== 0) {
+        products = products.filter(product => product.type === filterby);
+    }
+
+    if (update !== undefined) {
+        const template = fs.readFileSync(__dirname + '/views/partials/Products/Products.ejs', 'utf8');
+        const html = ejs.render(template, { products });
+        res.send(html);
     } else {
-        switch (sortby) {
-            case 'latest':
-                products = await Product.find({$text: { $search: query}}).sort({updatedAt: 1});
-                break;
-    
-            case 'low':
-                products = await Product.find({$text: { $search: query}}).sort({min: 1} );
-                break;
-    
-            case 'high':
-                products = await Product.find({$text: { $search: query}}).sort({min: -1} );
-                break;
-    
-            default:
-                products = await Product.find({$text: { $search: query}});
-                break;
-        }
-        switch (filterby) {
-            case 'women':
-                products = products.filter(product => product.type === 'women')
-                break;
-    
-            case 'men':
-                products = products.filter(product => product.type === 'men')
-                break;
-    
-            case 'kids':
-                products = products.filter(product => product.type === 'Kids');
-                break;
-    
-            default:
-                products = products;
-                break;
-        }
-    
-        if (update !== undefined) {
-            const template = fs.readFileSync(__dirname + '/views/partials/Products/Products.ejs', 'utf8');
-            const html = ejs.render(template, {products});
-            res.send(html);
-        } else {
-            res.render("shop", {products});
-        }
+        res.render("shop", { products });
     }
 });
+
+// Helper function to determine the sort condition
+function getSortCondition(sortby) {
+    switch (sortby) {
+        case 'latest':
+            return { updatedAt: 1 };
+        case 'low':
+            return { min: 1 };
+        case 'high':
+            return { min: -1 };
+        default:
+            return {};
+    }
+}
 
 app.get('/wishlist', (req, res) => {
     res.render("wishlist", {products: Products, pageTitle: 'Wishlist', pageLink: 'wishlist'})
@@ -186,55 +180,56 @@ app.get('/shop', async (req, res) => {
     const sortby = req.query.sortby;
     const filterby = req.query.filterby;
     const update = req.query.update;
-    let products = [];
 
+    const query = {};
+
+    // Build sort condition
+    let sortCondition;
     switch (sortby) {
         case 'latest':
-            products = await Product.find().sort({updatedAt: 1});
+            sortCondition = { updatedAt: 1 };
             break;
-
         case 'low':
-            products = await Product.find().sort({min: 1} );
+            sortCondition = { min: 1 };
             break;
-
         case 'high':
-            products = await Product.find().sort({min: -1} );
+            sortCondition = { min: -1 };
             break;
-
         default:
-            products = await Product.find();
+            sortCondition = {};
             break;
     }
+
+    // Apply filter condition
     switch (filterby) {
         case 'women':
-            products = products.filter(product => product.type === 'women')
+            query.type = 'women';
             break;
-
         case 'men':
-            products = products.filter(product => product.type === 'men')
+            query.type = 'men';
             break;
-
         case 'kids':
-            products = products.filter(product => product.type === 'Kids')
+            query.type = 'Kids';
             break;
-
         default:
-            products = products;
+            // No filter condition
             break;
     }
+
+    let products = await Product.find(query).sort(sortCondition).lean();
 
     if (update !== undefined) {
         const template = fs.readFileSync(__dirname + '/views/partials/Products/Products.ejs', 'utf8');
-        const html = ejs.render(template, {products});
+        const html = ejs.render(template, { products });
         res.send(html);
     } else {
-        res.render("shop", {products});
+        res.render("shop", { products });
     }
 });
 
 app.get('/shop/:productId', async (req, res) => {
     const id = req.params.productId;
-    const product = await Product.findById(id);
+    const product = await Product.findById(id).lean();
     res.render("product", {product});
 });
 

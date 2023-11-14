@@ -19,7 +19,7 @@
     <div class="product-body mt-3">
         <div class="row">
             <div class="image-col col col-12 col-lg-6 col-sm-6 mb-5">
-                <img class="quickview-img" src="/<%= product.image %>" alt="<%= product.name %>">
+                <img loading="lazy" class="quickview-img" src="/<%= product.image %>" alt="<%= product.name %>">
             </div>
             <div class="col col-12 col-lg-6 col-sm-6">
                 <h2 class="item-title"><%= product.name %></h2>
@@ -51,10 +51,10 @@
                 <div class="mt-5 d-flex gap-4 flex-wrap share-container">
                     <span>Share: </span>
                     <a style="cursor: pointer;" onclick="shareOnFacebook()">
-                        <img src="/assets/facebook.png" alt="Facebook">
+                        <img loading="lazy" src="/assets/facebook.png" alt="Facebook">
                     </a>
                     <a style="cursor: pointer;" onclick="shareOnInstagram()">
-                        <img src="/assets/instagram.png" alt="Instagram">
+                        <img loading="lazy" src="/assets/instagram.png" alt="Instagram">
                     </a>
                 </div>
             </div>

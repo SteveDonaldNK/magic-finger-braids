@@ -1,14 +1,14 @@
-<div class="row m-0 gy-4 ">
+<div style="min-height: 60vh;" class="row m-0 gy-4 product-layout">
     <% products.map(product =>{%>
         <div class="col col-6 col-lg-3 col-md-4 col-sm-6 p-0">
           <div class="card border-0 m-auto" id="<%= product._id %>">
             <div class="w-100 h-100 position-relative overflow-hidden card-img-top-container">
               <a href="/shop/<%= product._id %>">
-                <img src="<%= product.image %>" loading="lazy" class="card-img-top" alt="<%= product.name %>">
+                <img loading="lazy" src="<%= product.image %>" loading="lazy" class="card-img-top" alt="<%= product.name %>">
               </a>
               <button class="add-btn show-btn btn rounded-0 fw-semibold position-absolute d-flex justify-content-center align-items-center gap-3"
                 onclick="showItem('<%= product._id %>')">
-                <img src="assets/eye-full.svg" class="view-icon" alt="quick view">Quick view
+                <img loading="lazy" src="assets/eye-full.svg" class="view-icon" alt="quick view">Quick view
               </button>
             </div>
             <div class="card-body px-0">
@@ -17,7 +17,7 @@
                   <p class="card-text fw-semibold mb-0 product-name"><%= product.name %></p>
                 </a>
                 <button onclick="addToFavorites(event, '<%= product._id %>')" class="btn border-0 p-0">
-                  <img src="assets/favorite.svg" id="<%= product._id %>" class="fav-icon" alt="add to favorite">
+                  <img loading="lazy" src="assets/favorite.svg" id="<%= product._id %>" class="fav-icon" alt="add to favorite">
                 </button>
               </div>
               <div class="price-slider mt-1 w-100 position-relative overflow-hidden">

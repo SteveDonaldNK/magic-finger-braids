@@ -20,7 +20,7 @@
                     <div class="hstack justify-content-between">
                         <% for(let j = 0 ; j < 3 ; j++) { %>
                             <div class="card">
-                                <img src="<%= featuredProducts[index].image%>" class="card-img-top" alt="...">
+                                <img loading="lazy" src="<%= featuredProducts[index].image%>" class="card-img-top" alt="...">
                             </div>
                             <% index++ %>
                         <% } %>

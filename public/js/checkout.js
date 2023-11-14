@@ -95,7 +95,7 @@ function listItems() {
         <div class="d-flex item-container mb-4 position-relative">
             <button onclick="removeFromCart(\'${item.id}\', \'${item.option}\')" style="height: 0.3rem; width: 0.3rem" type="button" class="btn-close position-absolute top-0 end-0" aria-label="Close"></button>
             <div class="image-container">
-                <img class="item-img" src="/${item.image}" alt="">
+                <img loading="lazy" class="item-img" src="/${item.image}" alt="">
             </div>
             <div class="content-container ms-4 w-100 d-flex">
                 <p class="mb-0">${item.name} (${item.option})</p>
