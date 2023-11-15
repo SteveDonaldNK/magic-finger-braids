@@ -1,4 +1,7 @@
 <%- include("./partials/header") %>
+<meta property="og:title" content=<%= product.name %>>
+<meta property="og:description" content="Explore our <%= product.name %>, hairstyle with various options (<% product.options.forEach(option => { %> <%= option.name %><% }); %>, )">
+<meta property="og:image" content="assets/<%= product.image %>">
 <link rel="stylesheet" href="/css/navigation.css">
 <link rel="stylesheet" href="/css/footer.css">
 <link rel="stylesheet" href="/css/product.css">
