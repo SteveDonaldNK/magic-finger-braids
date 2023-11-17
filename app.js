@@ -54,13 +54,13 @@ const Product = mongoose.model('product', productSchema);
 // })
 
 app.post('/product', async (req, res) => {
-    const product = await Product.findById(req.body.id).lean();
+    const product = await Product.findById(req.body.id);
     res.send(product);
 });
 
 app.post('/get-products', async (req, res) => {
     const storedItems = req.body.storedItems;
-    const products = await Product.find({_id: { $in: storedItems}}).lean();
+    const products = await Product.find({_id: { $in: storedItems}});
     let html = '';
 
     if(products.length !== 0) {
@@ -138,7 +138,7 @@ app.get('/search', async (req, res) => {
     const queryCondition = { $text: { $search: query } };
     const sortCondition = getSortCondition(sortby);
 
-    let products = await Product.find(queryCondition).sort(sortCondition).lean();
+    let products = await Product.find(queryCondition).sort(sortCondition);
 
     // Apply additional filtering
     if (filterby && products.length !== 0) {
@@ -216,7 +216,7 @@ app.get('/shop', async (req, res) => {
             break;
     }
 
-    let products = await Product.find(query).sort(sortCondition).lean();
+    let products = await Product.find(query).sort(sortCondition);
 
     if (update !== undefined) {
         const template = fs.readFileSync(__dirname + '/views/partials/Products/Products.ejs', 'utf8');
@@ -229,7 +229,7 @@ app.get('/shop', async (req, res) => {
 
 app.get('/shop/:productId', async (req, res) => {
     const id = req.params.productId;
-    const product = await Product.findById(id).lean();
+    const product = await Product.findById(id);
     res.render("product", {product});
 });
 
