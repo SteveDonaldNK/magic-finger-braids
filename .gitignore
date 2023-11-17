@@ -2,3 +2,6 @@
 npm-debug.log
 .DS_Store
 /*.env
+magic-finger-braids_com.cer
+magic-finger-braids_com.csr
+magic-finger-braids_com.key
