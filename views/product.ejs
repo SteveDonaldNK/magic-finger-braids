@@ -40,13 +40,13 @@
                 <div class="text-danger" id="option-error"></div>
                 <div class="product-footer hstack flex-wrap justify-content-between align-items-end mt-5">
                     <div class="option-price">
-                        <p class="text-secondary m-0">Price: <span style="width: 2.5rem; display: inline-block;" id="price"></span></p>
+                        <p class="text-secondary">Price: <span style="width: 2.5rem; display: inline-block;" id="price"></span></p>
                     </div>
-                    <div>
-                        <button type="button" id="<%= product._id %>" value="" class="btn add-to-cart ms-auto px-4 py-2 bg-dark rounded-0 text-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="option 1">
+                    <div class="d-flex gap-2 flex-wrap">
+                        <button type="button" id="<%= product._id %>" value="" class="btn add-to-cart ms-auto px-4 py-2 bg-dark rounded-0 text-light flex-shrink-0 flex-grow-1" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="option 1">
                             Add to Bookings
                         </button>
-                        <button onclick="addfav('<%= product._id %>', event)" type="button" id="id" value="" class="ms-2 btn favorite px-4 py-2 bg-secondary rounded-0 text-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="option 1">
+                        <button onclick="addfav('<%= product._id %>', event)" type="button" id="id" value="" class="btn favorite px-4 py-2 bg-secondary rounded-0 text-light flex-shrink-0 flex-grow-1" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="option 1">
                             Add to wishlist
                         </button>
                     </div>
