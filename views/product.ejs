@@ -1,17 +1,13 @@
 <%- include("./partials/header") %>
-<meta property="og:title" content=<%= product.name %>>
-<meta property="og:description" content="Explore our <%= product.name %>, hairstyle with various options (<% product.options.forEach(option => { %> <%= option.name %><% }); %>, )">
-<meta property="og:image" content="https:www.magic-finger-braids.com/<%= product.image %>">
-
 <meta name="description" content=<%= product.name %>>
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content=<%= product.name %>>
 <meta name="twitter:description" content=<%= product.name %>>
 <meta name="twitter:image" content=<%= product.image %>>
-<meta property="og:url" content="https://www.magic-finger-braids.com/shop/ <%= product._id %>">
-<meta property="og:type" content="website">
 <meta property="og:title" content=<%= product.name %>>
-<meta property="og:description" content=<%= product.name %>>
+<meta property="og:description" content="Explore our <%= product.name %>, hairstyle with various options and braid styles.">
+<meta property="og:url" content="https://www.magic-finger-braids.com/shop/<%= product._id %>">
+<meta property="og:type" content="website">
 <meta property="og:image" content="https://www.magic-finger-braids.com/<%= product.name %>">
 
 <link rel="stylesheet" href="/css/navigation.min.css">
