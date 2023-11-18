@@ -1,13 +1,17 @@
     <%- include("./partials/header") %>
-        <meta name="description" content="Discover the artistry of hair at Magic Finger Braids, your premier hair salon for stunning and innovative hairstyles. Our highly skilled stylists specialize in a variety of braiding techniques, from classic cornrows to intricate box braids. Experience personalized consultations, stay on trend with our stylists, and express yourself with creative and beautiful styles. We prioritize healthy hair using high-quality, chemical-free products. Enjoy a relaxing atmosphere, warm smiles, and efficient service. All ages and hair types are welcome. Visit Magic Finger Braids for a transformative and delightful experience.">
+        <meta name="description" content="Unleash your hair's magic with Magic Finger Braids! Skilled stylists transform your hair into a masterpiece with classic cornrows, intricate box braids, and trendy styles. Personalized approach complements your unique style. Experience the difference of beautiful, healthy, and stylish hair. Book now!">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="magic-finger-braids">
+        <meta name="twitter:description" content="Unleash your hair's magic with Magic Finger Braids! Skilled stylists transform your hair into a masterpiece with classic cornrows, intricate box braids, and trendy styles. Personalized approach complements your unique style. Experience the difference of beautiful, healthy, and stylish hair. Book now!">
+        <meta name="twitter:image" content="https://www.magic-finger-braids.com/assets/magic-logo-footer.webp">
         <meta property="og:url" content="https://www.magic-finger-braids.com">
         <meta property="og:type" content="website">
         <meta property="og:title" content="Magic Finger Braids - Premier Hair Salon">
-        <meta property="og:description" content="Discover stunning and innovative hairstyles at Magic Finger Braids. Expert stylists, personalized consultations, and healthy hair solutions.">
-        <meta property="og:image" content="https://www.magic-finger-braids.com/assets/magic-logo-footer.png">
-        <link rel="stylesheet" href="css/styles.css">
-        <link rel="stylesheet" href="css/navigation.css">
-        <link rel="stylesheet" href="css/footer.css">
+        <meta property="og:description" content="Unleash your hair's magic with Magic Finger Braids! Skilled stylists transform your hair into a masterpiece with classic cornrows, intricate box braids, and trendy styles. Personalized approach complements your unique style. Experience the difference of beautiful, healthy, and stylish hair. Book now!">
+        <meta property="og:image" content="https://www.magic-finger-braids.com/assets/magic-logo-footer.webp">
+        <link rel="stylesheet" href="css/styles.min.css">
+        <link rel="stylesheet" href="css/navigation.min.css">
+        <link rel="stylesheet" href="css/footer.min.css">
         <title>Magic Finger Braids</title>
     </head>
     <body>
@@ -33,27 +37,30 @@
                 <h2 class="contracted">
                     Follow us
                 </h2>
+                <h2 class="contracted mobile d-none">
+                    Follow
+                </h2>
             </span>
             <span>
                 <a href="https://www.facebook.com/Magic-Finger-Braids-109816552056099/" target="_blank">
-                    <img loading="lazy" src="assets/facebook.png" alt="facebook">
+                    <img loading="lazy" src="assets/facebook.webp" alt="follow on facebook">
                     <p>Facebook</p>
                 </a>
             </span>
             <span>
                 <a href="https://www.instagram.com/magic.fingerbraids/" target="_blank">
-                    <img loading="lazy" src="assets/instagram.png" alt="instagram">
+                    <img loading="lazy" src="assets/instagram.webp" alt="follow on instagram">
                     <p>Instagram</p>
                 </a>
             </span>
             <span>
                 <a href="https://www.tiktok.com/@m.f.bs?_t=8aUm5HHO8Q&_r=1" target="_blank">
-                    <img loading="lazy" src="assets/tiktok.png" alt="tiktok">
+                    <img loading="lazy" src="assets/tiktok.webp" alt="follow on tiktok">
                     <p>Tiktok</p>
                 </a>
             </span>
         </div>
-        <img loading="lazy" class="position-absolute main-img" src="assets/main.png" alt="">
+        <img class="position-absolute main-img" src="assets/main.webp" alt="magic-finger-braids">
     </section>
 
     <section id="featured-section" class="container-fluid">
@@ -78,7 +85,7 @@
             <div id="testimonial-carousel" class="carousel slide pb-5" data-bs-ride="true" data-bs-touch="true">
                 <div id="lg-carousel" class="carousel-inner ">
                     <div class="carousel-item active">
-                        <div class="card" style="width: 55%; margin: auto;">
+                        <div class="card">
                             <div class="card-body">
                                 <p class="testimonial">
                                     <span class="quotes">"</span>
@@ -92,7 +99,7 @@
                     </div>
                     <% testimonials.forEach(testimonial => { %>
                         <div class="carousel-item">
-                            <div class="card" style="width: 55%; margin: auto;">
+                            <div class="card">
                                 <div class="card-body">
                                     <p class="testimonial"><span class="quotes">"</span><%= testimonial.text %><span class="quotes">"</span>
                                     </p>

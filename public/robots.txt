@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: http://www.magic-finger-braids.com/sitemap.xml

@@ -2,9 +2,9 @@
 <meta property="og:title" content=<%= product.name %>>
 <meta property="og:description" content="Explore our <%= product.name %>, hairstyle with various options (<% product.options.forEach(option => { %> <%= option.name %><% }); %>, )">
 <meta property="og:image" content="assets/<%= product.image %>">
-<link rel="stylesheet" href="/css/navigation.css">
-<link rel="stylesheet" href="/css/footer.css">
-<link rel="stylesheet" href="/css/product.css">
+<link rel="stylesheet" href="/css/navigation.min.css">
+<link rel="stylesheet" href="/css/footer.min.css">
+<link rel="stylesheet" href="/css/product.min.css">
 <title><%= product.name %></title>
 </head>
 <body>
@@ -54,10 +54,10 @@
                 <div class="mt-5 d-flex gap-4 flex-wrap share-container">
                     <span>Share: </span>
                     <a style="cursor: pointer;" onclick="shareOnFacebook()">
-                        <img loading="lazy" src="/assets/facebook.png" alt="Facebook">
+                        <img loading="lazy" src="/assets/facebook.webp" alt="Facebook">
                     </a>
                     <a style="cursor: pointer;" onclick="shareOnInstagram()">
-                        <img loading="lazy" src="/assets/instagram.png" alt="Instagram">
+                        <img loading="lazy" src="/assets/instagram.webp" alt="Instagram">
                     </a>
                 </div>
             </div>
@@ -68,6 +68,6 @@
 <hr>
 
 
-<script src="/js/product.js"></script>
+<script src="/js/product.min.js"></script>
 <%- include("./partials/footer") %>
 <script>isFavorite('<%= product._id %>')</script>

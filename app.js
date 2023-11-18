@@ -271,6 +271,14 @@ app.get('/checkout/failure', (req, res) => {
     });
 });
 
+app.get("/sitemap.xml", (req, res) => {
+    res.sendFile(__dirname + '/public/sitemap.xml');
+})
+
+app.get("/robots.txt", (req, res) => {
+    res.sendFile(__dirname + '/public/robots.txt');
+})
+
 app.all('*', (req, res) => {
     res.render("notFound");
 })

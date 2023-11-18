@@ -1,7 +1,7 @@
 const products = [{
     name: "Med Box Braids",
     type: "women",
-    image: "assets/image1.jpg",
+    image: "assets/image1.webp",
     category: 'box braids',
     min: 200,
     max: 300,
@@ -24,7 +24,7 @@ const products = [{
 }, {
     name: "Jumbo Knotless",
     type: "women",
-    image: "assets/image2.jpg",
+    image: "assets/image2.webp",
     category: 'Knotless',
     min: 140,
     max: 220,
@@ -47,7 +47,7 @@ const products = [{
 }, {
     name: "Side Stitch Box Braids",
     type: "women",
-    image: "assets/image3.jpg",
+    image: "assets/image3.webp",
     category: 'box braids',
     min: 250,
     max: null,
@@ -58,7 +58,7 @@ const products = [{
 }, {
     name: "Kids Knotless",
     type: "Kids",
-    image: "assets/image17.jpg",
+    image: "assets/image17.webp",
     category: 'Knotless',
     min: 200,
     max: 220,
@@ -75,7 +75,7 @@ const products = [{
 }, {
     name: "Large Box Braids",
     type: "women",
-    image: "assets/image4.jpg",
+    image: "assets/image4.webp",
     category: 'box braids',
     min: 150,
     max: 250,
@@ -98,7 +98,7 @@ const products = [{
 }, {
     name: "Kinky Twist",
     type: "women",
-    image: "assets/image5.jpg",
+    image: "assets/image5.webp",
     category: 'Twist',
     min: 150,
     max: 200,
@@ -115,7 +115,7 @@ const products = [{
 }, {
     name: "Under Spring Twist",
     type: "women",
-    image: "assets/image6.jpg",
+    image: "assets/image6.webp",
     category: 'Twist',
     min: 120,
     max: 180,
@@ -132,7 +132,7 @@ const products = [{
 }, {
     name: "Two Trand Twist",
     type: "men",
-    image: "assets/image7.jpg",
+    image: "assets/image7.webp",
     category: 'Twist',
     min: 100,
     max: null,
@@ -143,7 +143,7 @@ const products = [{
 }, {
     name: "Medium Knotless",
     type: "women",
-    image: "assets/image8.jpg",
+    image: "assets/image8.webp",
     category: 'Knotless',
     min: 220,
     max: 340,
@@ -166,7 +166,7 @@ const products = [{
 }, {
     name: "Men plait",
     type: "men",
-    image: "assets/image9.jpg",
+    image: "assets/image9.webp",
     category: 'Plait',
     min: 100,
     max: null,
@@ -177,7 +177,7 @@ const products = [{
 }, {
     name: "7-8 stitch Cornrow up do",
     type: "women",
-    image: "assets/image10.jpg",
+    image: "assets/image10.webp",
     category: 'Cornrow',
     min: 160,
     max: null,
@@ -188,7 +188,7 @@ const products = [{
 }, {
     name: "6 Stitch Cornrow",
     type: "women",
-    image: "assets/image11.jpg",
+    image: "assets/image11.webp",
     category: 'Cornrow',
     min: 120,
     max: null,
@@ -199,7 +199,7 @@ const products = [{
 }, {
     name: "Triangle Knotless",
     type: "women",
-    image: "assets/image12.jpg",
+    image: "assets/image12.webp",
     category: 'Knotless',
     min: 240,
     max: 340,
@@ -219,7 +219,7 @@ const products = [{
 }, {
     name: "Extra Small Knotless",
     type: "women",
-    image: "assets/image13.jpg",
+    image: "assets/image13.webp",
     category: 'Knotless',
     min: 350,
     max: 500,
@@ -242,7 +242,7 @@ const products = [{
 }, {
     name: "Large Knotless",
     type: "women",
-    image: "assets/image15.jpg",
+    image: "assets/image15.webp",
     category: 'Knotless',
     min: 150,
     max: 280,
@@ -265,7 +265,7 @@ const products = [{
 }, {
     name: "Fulani Cornrow",
     type: "women",
-    image: "assets/image16.jpg",
+    image: "assets/image16.webp",
     category: 'Cornrow',
     min: 240,
     max: 280,
@@ -282,7 +282,7 @@ const products = [{
 }, {
     name: "Half Stitch/Half Braid",
     type: "women",
-    image: "assets/image18.jpg",
+    image: "assets/image18.webp",
     min: 200,
     max: null,
     options: [{
@@ -292,7 +292,7 @@ const products = [{
 }, {
     name: "Passion Twist",
     type: "women",
-    image: "assets/image19.jpg",
+    image: "assets/image19.webp",
     category: 'Twist',
     min: 210,
     max: 240,
@@ -309,7 +309,7 @@ const products = [{
 }, {
     name: "Soft Locs",
     type: "women",
-    image: "assets/image14.jpg",
+    image: "assets/image14.webp",
     category: 'Locs',
     min: 220,
     max: 260,
@@ -326,7 +326,7 @@ const products = [{
 }, {
     name: "Bomb Twist",
     type: "women",
-    image: "assets/image20.jpg",
+    image: "assets/image20.webp",
     category: 'Twist',
     min: 220,
     max: 260,
@@ -343,7 +343,7 @@ const products = [{
 }, {
     name: "Butterfly Locs",
     type: "women",
-    image: "assets/image21.jpg",
+    image: "assets/image21.webp",
     category: 'Locs',
     min: 240,
     max: 300,
@@ -360,7 +360,7 @@ const products = [{
 }, {
     name: "Senegalese Twist",
     type: "women",
-    image: "assets/image22.jpg",
+    image: "assets/image22.webp",
     category: 'Twist',
     min: 220,
     max: 260,
