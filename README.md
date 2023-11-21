@@ -1,3 +1,3 @@
 # magic-finger-braids
 
-See deployed app: https://magic-finger-braids-store.vercel.app
+See deployed app: https://www.magic-finger-braids.com
